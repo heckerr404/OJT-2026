@@ -4,39 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Team Agency Portfolio</title>
-  <!-- link to our css file -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ===================================================
-       PAGE 1 : LANDING PAGE
-       This div shows first when the user opens the website
-  ==================================================== -->
   <div id="landing-page">
 
-    <!-- -------- LANDING NAVBAR -------- -->
     <nav id="landing-nav">
-      <!-- logo on the left -->
       <div class="landing-nav-logo">
         <span class="logo-star">&#10033;</span>
         <span class="logo-text">TEAM AGENCY</span>
       </div>
-      <!-- nav links in the center -->
       <ul class="landing-nav-links">
         <li><a href="#">Projects</a></li>
         <li><a href="#">Team</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
-      <!-- enter site button on the right -->
       <button id="enter-btn" onclick="enterSite()">Enter Site &nbsp;&#8599;</button>
     </nav>
 
-    <!-- -------- HERO BODY -------- -->
     <div class="hero-body">
 
-      <!-- LEFT: big title + tagline + buttons -->
       <div class="hero-left">
         <h1 class="hero-title">
           TEAM AGENCY
@@ -50,32 +39,24 @@
           that make an impact.
         </p>
         <div class="hero-buttons">
-          <!-- primary CTA -->
           <button class="hero-btn-primary" onclick="enterSite()">View Projects &nbsp;&#8599;</button>
-          <!-- secondary CTA -->
           <button class="hero-btn-secondary" onclick="enterSite()">Meet The Team</button>
         </div>
       </div>
 
-      <!-- RIGHT: stats panel -->
       <div class="hero-right">
-        <!-- stat 1 -->
         <div class="stat-item">
           <div class="stat-icon">&#128101;</div>
           <div class="stat-number">6</div>
           <div class="stat-label">Students</div>
         </div>
-        <!-- divider line -->
         <div class="stat-divider"></div>
-        <!-- stat 2 -->
         <div class="stat-item">
           <div class="stat-icon">&#128193;</div>
           <div class="stat-number">6</div>
           <div class="stat-label">Projects</div>
         </div>
-        <!-- divider line -->
         <div class="stat-divider"></div>
-        <!-- stat 3 -->
         <div class="stat-item">
           <div class="stat-icon">&#9733;</div>
           <div class="stat-number">1</div>
@@ -84,44 +65,31 @@
       </div>
 
     </div>
-    <!-- end hero-body -->
 
   </div>
 
 
-  <!-- ===================================================
-       PAGE 2 : MAIN PAGE
-       This div is hidden at start, shown after button click
-  ==================================================== -->
   <div id="main-page" style="display:none;">
 
-    <!-- -------- NAVBAR -------- -->
     <nav id="navbar">
       <div class="nav-logo">Team Agency</div>
-      <!-- button to switch dark / light mode -->
       <button id="theme-btn" onclick="toggleTheme()">&#127769; Dark Mode</button>
     </nav>
 
-    <!-- -------- PAGE BODY (sidebar + content) -------- -->
     <div id="page-body">
 
-      <!-- SIDEBAR with links to all 6 projects -->
       <aside id="sidebar">
 
-        <!-- sidebar header row: logo on left, collapse button on right -->
         <div id="sidebar-header">
           <div id="sidebar-logo">
             <span id="sidebar-logo-icon">&#127968;</span>
             <span id="sidebar-logo-text">Team Agency</span>
           </div>
-          <!-- clicking this calls collapseSidebar() in script.js -->
           <button id="collapse-btn" onclick="collapseSidebar()" title="Collapse sidebar">&#8249;</button>
         </div>
 
-        <!-- project navigation links -->
         <nav id="sidebar-nav">
           <ul>
-            <!-- active class marks the currently selected link -->
             <li>
               <a href="#" class="active" id="link-portfolio" onclick="showSection('portfolio'); setActive('link-portfolio'); return false;">
                 <span class="nav-icon">&#127968;</span>
@@ -147,12 +115,6 @@
               </a>
             </li>
             <li>
-              <a href="#" id="link-github" onclick="showSection('github'); setActive('link-github'); return false;">
-                <span class="nav-icon">&#128270;</span>
-                <span class="nav-label">GitHub Explorer</span>
-              </a>
-            </li>
-            <li>
               <a href="../kanban-board/index.html">
                 <span class="nav-icon">&#128203;</span>
                 <span class="nav-label">Kanban Task Board</span>
@@ -163,19 +125,10 @@
 
       </aside>
 
-      <!-- MAIN CONTENT AREA -->
       <main id="main-content">
 
-        <!-- ==================================================
-             SECTION A : TEAM PORTFOLIO
-             Shows student cards and contact form
-        =================================================== -->
         <div id="section-portfolio">
 
-          <!-- ===================================================
-               ABOUT / MISSION SECTION
-               Short description of the project at the top
-          ==================================================== -->
           <div id="about-section">
             <h2>About This Project</h2>
             <p>
@@ -188,23 +141,19 @@
             </p>
           </div>
 
-          <!-- heading for the cards section -->
           <h2>Meet Our Team</h2>
 
-          <!-- grid holds all 5 student cards -->
           <div id="team-grid">
 
-            <!-- Card 1 -->
             <div class="student-card">
               <div class="card-header">RY</div>
               <h3>Ritesh Yadav</h3>
-              <p><strong>Project:</strong> Team Agency Portfolio + GitHub Explorer</p>
-              <p><strong>Focus:</strong> DOM manipulation, localStorage, form validation, Multi-API</p>
+              <p><strong>Project:</strong> Team Agency Portfolio</p>
+              <p><strong>Focus:</strong> DOM manipulation, localStorage, form validation</p>
               <p><strong>Branch:</strong> <span class="branch-tag">main-ritesh</span></p>
               <a href="https://github.com/heckerr404" target="_blank" class="gh-link">View on GitHub</a>
             </div>
 
-            <!-- Card 2 -->
             <div class="student-card">
               <div class="card-header">DS</div>
               <h3>Dhruv Sharma</h3>
@@ -214,7 +163,6 @@
               <a href="https://github.com/Dhruv1357" target="_blank" class="gh-link">View on GitHub</a>
             </div>
 
-            <!-- Card 3 -->
             <div class="student-card">
               <div class="card-header">SP</div>
               <h3>Soham Patel</h3>
@@ -224,7 +172,6 @@
               <a href="https://github.com/soham598-12" target="_blank" class="gh-link">View on GitHub</a>
             </div>
 
-            <!-- Card 4 - no GitHub link yet -->
             <div class="student-card">
               <div class="card-header">VK</div>
               <h3>Vikash</h3>
@@ -234,7 +181,6 @@
               <p class="gh-link-text">GitHub: Coming soon</p>
             </div>
 
-            <!-- Card 5 -->
             <div class="student-card">
               <div class="card-header">SM</div>
               <h3>Sumeet</h3>
@@ -245,29 +191,21 @@
             </div>
 
           </div>
-          <!-- end team-grid -->
 
-          <!-- ===================================================
-               TECH STACK SECTION
-               3 boxes showing the technologies used
-          ==================================================== -->
           <div id="tech-stack-section">
             <h2>Tech Stack We Used</h2>
             <div id="tech-grid">
 
-              <!-- HTML box -->
               <div class="tech-card">
                 <div class="tech-name">HTML</div>
                 <p>Structure and content of all pages</p>
               </div>
 
-              <!-- CSS box -->
               <div class="tech-card">
                 <div class="tech-name">CSS</div>
                 <p>Styling, layout, responsiveness and themes</p>
               </div>
 
-              <!-- JavaScript box -->
               <div class="tech-card">
                 <div class="tech-name">JavaScript</div>
                 <p>Logic, interactivity, APIs and localStorage</p>
@@ -276,15 +214,10 @@
             </div>
           </div>
 
-          <!-- ===================================================
-               PROJECT TIMELINE SECTION
-               4 steps showing how the project was built
-          ==================================================== -->
           <div id="timeline-section">
             <h2>Project Timeline</h2>
             <div id="timeline-list">
 
-              <!-- Step 1 -->
               <div class="timeline-item">
                 <div class="timeline-number">1</div>
                 <div class="timeline-text">
@@ -293,7 +226,6 @@
                 </div>
               </div>
 
-              <!-- Step 2 -->
               <div class="timeline-item">
                 <div class="timeline-number">2</div>
                 <div class="timeline-text">
@@ -302,7 +234,6 @@
                 </div>
               </div>
 
-              <!-- Step 3 -->
               <div class="timeline-item">
                 <div class="timeline-number">3</div>
                 <div class="timeline-text">
@@ -311,7 +242,6 @@
                 </div>
               </div>
 
-              <!-- Step 4 -->
               <div class="timeline-item">
                 <div class="timeline-number">4</div>
                 <div class="timeline-text">
@@ -323,7 +253,6 @@
             </div>
           </div>
 
-          <!-- -------- CONTACT FORM -------- -->
           <div id="contact-section">
             <h2>Contact Us</h2>
             <form id="contact-form" onsubmit="submitForm(event)">
@@ -339,79 +268,19 @@
 
               <button type="submit">Submit</button>
 
-              <!-- this paragraph shows success or error after submit -->
               <p id="form-msg"></p>
 
             </form>
           </div>
 
         </div>
-        <!-- end section-portfolio -->
-
-
-        <!-- ==================================================
-             SECTION B : GITHUB DEVELOPER EXPLORER
-             Hidden at start, shown when sidebar link clicked
-        =================================================== -->
-        <div id="section-github" style="display:none;">
-
-          <h2>GitHub Developer Explorer</h2>
-          <p>Type a GitHub username below and click Search.</p>
-
-          <!-- search input and button -->
-          <div id="search-bar">
-            <input type="text" id="gh-username" placeholder="e.g. torvalds" />
-            <button id="gh-search-btn" onclick="searchGitHub()">Search</button>
-          </div>
-
-          <!-- loading text shown while fetching data -->
-          <p id="gh-loading" style="display:none;">Loading...</p>
-
-          <!-- error message shown if user not found -->
-          <p id="gh-error" style="display:none;"></p>
-
-          <!-- profile card filled by JS after fetch -->
-          <div id="gh-profile" style="display:none;">
-            <img id="gh-avatar" src="" alt="GitHub Avatar" />
-            <div id="gh-info">
-              <h3 id="gh-name"></h3>
-              <p id="gh-bio"></p>
-              <p>
-                Followers: <strong id="gh-followers"></strong> &nbsp;|&nbsp;
-                Following: <strong id="gh-following"></strong> &nbsp;|&nbsp;
-                Public Repos: <strong id="gh-repos"></strong>
-              </p>
-            </div>
-          </div>
-
-          <!-- sort controls, shown after repos load -->
-          <div id="sort-controls" style="display:none;">
-            <label for="sort-select">Sort repos by: </label>
-            <select id="sort-select" onchange="sortRepos()">
-              <option value="name">Name (A to Z)</option>
-              <option value="stars">Stars (High to Low)</option>
-            </select>
-          </div>
-
-          <!-- repo list built dynamically by JS -->
-          <ul id="repo-list"></ul>
-
-        </div>
-        <!-- end section-github -->
 
       </main>
-      <!-- end main-content -->
 
     </div>
-    <!-- end page-body -->
 
-    <!-- ===================================================
-         FOOTER SECTION
-         At the bottom of the main page
-    ==================================================== -->
     <footer id="site-footer">
       <p>&copy; 2026 Team Agency &mdash; School Capstone Project</p>
-      <!-- team member GitHub links -->
       <div id="footer-links">
         <a href="https://github.com/heckerr404" target="_blank">Ritesh</a>
         <a href="https://github.com/Dhruv1357" target="_blank">Dhruv</a>
@@ -422,10 +291,8 @@
     </footer>
 
   </div>
-  <!-- end main-page -->
 
 
-  <!-- script linked at bottom so HTML loads before JS runs -->
   <script src="script.js"></script>
 
 </body>

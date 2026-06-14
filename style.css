@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-/* =====================================================
-   style.css - Team Agency Portfolio
-   All colors use CSS color names only (no hex codes)
-   Simple beginner-level CSS
-====================================================== */
-
-/* ---- Base styles (light mode) ---- */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -15,26 +8,22 @@ body {
   color: black;
 }
 
-/* ---- Dark Mode: added to body by JS when user clicks the button ---- */
 body.dark-mode {
   background-color: black;
   color: white;
 }
 
 
-/* =====================================================
-   LANDING PAGE  –  full hero layout
-====================================================== */
+/* LANDING PAGE */
 
 #landing-page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #f5f5f0;   /* off-white, matches the reference */
+  background-color: #f5f5f0;
   font-family: 'Inter', Arial, sans-serif;
 }
 
-/* ---- LANDING NAVBAR ---- */
 #landing-nav {
   display: flex;
   align-items: center;
@@ -54,13 +43,11 @@ body.dark-mode {
   color: #111;
 }
 
-/* blue star icon */
 .logo-star {
   color: #1a1aff;
   font-size: 1.3em;
 }
 
-/* center nav links */
 .landing-nav-links {
   display: flex;
   list-style: none;
@@ -81,7 +68,6 @@ body.dark-mode {
   color: #1a1aff;
 }
 
-/* enter site button - dark navy pill */
 #enter-btn {
   padding: 10px 22px;
   font-size: 0.9em;
@@ -100,7 +86,6 @@ body.dark-mode {
   transform: translateY(-1px);
 }
 
-/* ---- HERO BODY ---- */
 .hero-body {
   display: flex;
   align-items: center;
@@ -109,13 +94,11 @@ body.dark-mode {
   gap: 40px;
 }
 
-/* LEFT SIDE */
 .hero-left {
   flex: 1;
   max-width: 520px;
 }
 
-/* big hero heading */
 .hero-title {
   font-size: clamp(3rem, 6vw, 5.2rem);
   font-weight: 900;
@@ -125,7 +108,6 @@ body.dark-mode {
   letter-spacing: -0.02em;
 }
 
-/* blue slash accent after first line */
 .hero-title-accent {
   color: #1a1aff;
   font-size: 0.6em;
@@ -134,7 +116,6 @@ body.dark-mode {
   margin-left: 6px;
 }
 
-/* blue PORTFOLIO word */
 .hero-title-blue {
   color: #1a1aff;
   display: block;
@@ -148,7 +129,6 @@ body.dark-mode {
   font-weight: 400;
 }
 
-/* CTA buttons row */
 .hero-buttons {
   display: flex;
   gap: 14px;
@@ -190,7 +170,6 @@ body.dark-mode {
   transform: translateY(-2px);
 }
 
-/* ---- RIGHT SIDE: STATS PANEL ---- */
 .hero-right {
   min-width: 260px;
   max-width: 320px;
@@ -203,7 +182,6 @@ body.dark-mode {
   box-shadow: 0 4px 24px rgba(0,0,0,0.06);
 }
 
-/* each stat row */
 .stat-item {
   display: flex;
   align-items: center;
@@ -216,7 +194,6 @@ body.dark-mode {
   background-color: #f7f7ff;
 }
 
-/* icon circle */
 .stat-icon {
   width: 42px;
   height: 42px;
@@ -229,7 +206,6 @@ body.dark-mode {
   flex-shrink: 0;
 }
 
-/* big bold number */
 .stat-number {
   font-size: 2.4em;
   font-weight: 800;
@@ -238,14 +214,12 @@ body.dark-mode {
   min-width: 40px;
 }
 
-/* label text beside number */
 .stat-label {
   font-size: 0.9em;
   color: #555;
   font-weight: 500;
 }
 
-/* thin horizontal divider between stats */
 .stat-divider {
   height: 1px;
   background-color: #e8e8e8;
@@ -253,9 +227,7 @@ body.dark-mode {
 }
 
 
-/* =====================================================
-   NAVBAR
-====================================================== */
+/* NAVBAR */
 
 #navbar {
   display: flex;
@@ -289,16 +261,13 @@ body.dark-mode {
   background-color: lightblue;
 }
 
-/* navbar in dark mode */
 body.dark-mode #navbar {
   background-color: black;
   border-bottom: 1px solid gray;
 }
 
 
-/* =====================================================
-   PAGE BODY - Sidebar + Main layout
-====================================================== */
+/* PAGE BODY */
 
 #page-body {
   display: flex;
@@ -306,9 +275,7 @@ body.dark-mode #navbar {
 }
 
 
-/* =====================================================
-   SIDEBAR
-====================================================== */
+/* SIDEBAR */
 
 #sidebar {
   width: 230px;
@@ -321,7 +288,6 @@ body.dark-mode #navbar {
   overflow: hidden;
 }
 
-/* ---- SIDEBAR HEADER ROW ---- */
 #sidebar-header {
   display: flex;
   align-items: center;
@@ -345,7 +311,6 @@ body.dark-mode #navbar {
   flex-shrink: 0;
 }
 
-/* collapse button */
 #collapse-btn {
   background: none;
   border: 1px solid lightgray;
@@ -364,12 +329,10 @@ body.dark-mode #navbar {
   color: black;
 }
 
-/* flip arrow when collapsed */
 #sidebar.collapsed #collapse-btn {
   transform: rotate(180deg);
 }
 
-/* ---- SIDEBAR NAV LINKS ---- */
 #sidebar-nav {
   padding: 12px 10px;
   flex: 1;
@@ -402,7 +365,6 @@ body.dark-mode #navbar {
   color: black;
 }
 
-/* active link highlight */
 #sidebar-nav ul li a.active {
   background-color: gainsboro;
   color: black;
@@ -421,7 +383,6 @@ body.dark-mode #navbar {
   overflow: hidden;
 }
 
-/* ---- COLLAPSED STATE ---- */
 #sidebar.collapsed {
   width: 58px;
   min-width: 58px;
@@ -441,7 +402,6 @@ body.dark-mode #navbar {
   justify-content: center;
 }
 
-/* ---- SIDEBAR DARK MODE ---- */
 body.dark-mode #sidebar {
   background-color: black;
   border-right: 1px solid gray;
@@ -480,9 +440,7 @@ body.dark-mode #sidebar-nav ul li a.active {
 }
 
 
-/* =====================================================
-   MAIN CONTENT AREA
-====================================================== */
+/* MAIN CONTENT */
 
 #main-content {
   flex: 1;
@@ -507,9 +465,7 @@ body.dark-mode #main-content h2 {
 }
 
 
-/* =====================================================
-   ABOUT / MISSION SECTION
-====================================================== */
+/* ABOUT SECTION */
 
 #about-section {
   background-color: whitesmoke;
@@ -519,7 +475,6 @@ body.dark-mode #main-content h2 {
   border-left: 4px solid navy;
 }
 
-/* remove bottom border from h2 inside about box */
 #about-section h2 {
   border-bottom: none;
   margin-top: 0;
@@ -533,7 +488,6 @@ body.dark-mode #main-content h2 {
   color: darkslategray;
 }
 
-/* dark mode about section */
 body.dark-mode #about-section {
   background-color: dimgray;
   border-left: 4px solid skyblue;
@@ -544,11 +498,8 @@ body.dark-mode #about-section p {
 }
 
 
-/* =====================================================
-   STUDENT CARDS GRID
-====================================================== */
+/* STUDENT CARDS */
 
-/* 3-column grid: 3 cards in row 1, 2 in row 2 */
 #team-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -556,7 +507,6 @@ body.dark-mode #about-section p {
   margin-bottom: 30px;
 }
 
-/* ---- CARD BASE ---- */
 .student-card {
   border: 1px solid tan;
   padding: 24px 22px;
@@ -585,7 +535,6 @@ body.dark-mode .student-card:hover {
   border: 1px solid white;
 }
 
-/* ---- AVATAR CIRCLE ---- */
 .card-header {
   background-color: navy;
   color: white;
@@ -600,7 +549,6 @@ body.dark-mode .student-card:hover {
   border: 2px solid lightgray;
 }
 
-/* ---- NAME HEADING ---- */
 .student-card h3 {
   margin: 0 0 12px 0;
   font-size: 1.1em;
@@ -612,7 +560,6 @@ body.dark-mode .student-card h3 {
   color: skyblue;
 }
 
-/* ---- INFO PARAGRAPHS ---- */
 .student-card p {
   margin: 6px 0;
   font-size: 0.87em;
@@ -624,7 +571,6 @@ body.dark-mode .student-card p {
   color: lightgray;
 }
 
-/* ---- BRANCH TAG / BADGE ---- */
 .branch-tag {
   background-color: seagreen;
   color: white;
@@ -634,7 +580,6 @@ body.dark-mode .student-card p {
   display: inline-block;
 }
 
-/* ---- "VIEW ON GITHUB" BUTTON-STYLE LINK ---- */
 .gh-link {
   display: inline-block;
   margin-top: 14px;
@@ -670,16 +615,13 @@ body.dark-mode .gh-link:hover {
 }
 
 
-/* =====================================================
-   TECH STACK SECTION
-====================================================== */
+/* TECH STACK */
 
 #tech-stack-section {
   margin-top: 10px;
   margin-bottom: 30px;
 }
 
-/* 3-column grid for the 3 tech boxes */
 #tech-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -696,7 +638,6 @@ body.dark-mode .gh-link:hover {
   box-sizing: border-box;
 }
 
-/* large bold technology name */
 .tech-name {
   font-size: 1.6em;
   font-weight: bold;
@@ -711,7 +652,6 @@ body.dark-mode .gh-link:hover {
   line-height: 1.5;
 }
 
-/* dark mode tech cards */
 body.dark-mode .tech-card {
   background-color: black;
   border: 1px solid gray;
@@ -726,9 +666,7 @@ body.dark-mode .tech-card p {
 }
 
 
-/* =====================================================
-   PROJECT TIMELINE SECTION
-====================================================== */
+/* TIMELINE */
 
 #timeline-section {
   margin-top: 10px;
@@ -742,7 +680,6 @@ body.dark-mode .tech-card p {
   gap: 14px;
 }
 
-/* each timeline step */
 .timeline-item {
   display: flex;
   align-items: flex-start;
@@ -750,12 +687,10 @@ body.dark-mode .tech-card p {
   padding: 16px 18px;
   background-color: white;
   border: 1px solid lightgray;
-  /* left accent bar makes it look like a timeline */
   border-left: 4px solid navy;
   border-radius: 0 8px 8px 0;
 }
 
-/* numbered circle */
 .timeline-number {
   background-color: navy;
   color: white;
@@ -787,7 +722,6 @@ body.dark-mode .tech-card p {
   line-height: 1.5;
 }
 
-/* dark mode timeline */
 body.dark-mode .timeline-item {
   background-color: black;
   border: 1px solid gray;
@@ -807,9 +741,7 @@ body.dark-mode .timeline-text p {
 }
 
 
-/* =====================================================
-   CONTACT FORM
-====================================================== */
+/* CONTACT FORM */
 
 #contact-section {
   margin-top: 30px;
@@ -869,9 +801,7 @@ body.dark-mode #contact-form textarea {
 }
 
 
-/* =====================================================
-   FOOTER SECTION
-====================================================== */
+/* FOOTER */
 
 #site-footer {
   background-color: gainsboro;
@@ -886,7 +816,6 @@ body.dark-mode #contact-form textarea {
   margin: 0 0 10px 0;
 }
 
-/* row of GitHub name links */
 #footer-links {
   display: flex;
   justify-content: center;
@@ -911,7 +840,6 @@ body.dark-mode #contact-form textarea {
   color: gray;
 }
 
-/* footer dark mode */
 body.dark-mode #site-footer {
   background-color: black;
   border-top: 1px solid gray;
@@ -924,238 +852,4 @@ body.dark-mode #footer-links a {
 
 body.dark-mode #footer-links a:hover {
   color: white;
-}
-
-
-/* =====================================================
-   GITHUB EXPLORER SECTION
-====================================================== */
-
-#search-bar {
-  display: flex;
-  gap: 10px;
-  margin: 16px 0;
-}
-
-#gh-username {
-  padding: 8px;
-  width: 260px;
-  border: 1px solid gray;
-  font-size: 0.95em;
-  font-family: Arial, sans-serif;
-  background-color: white;
-  color: black;
-}
-
-body.dark-mode #gh-username {
-  background-color: black;
-  color: white;
-  border: 1px solid gray;
-}
-
-#gh-search-btn {
-  padding: 8px 18px;
-  background-color: navy;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 0.95em;
-  border-radius: 8px;
-}
-
-#gh-search-btn:hover {
-  background-color: seagreen;
-}
-
-#gh-loading {
-  color: gray;
-  font-style: italic;
-}
-
-#gh-error {
-  color: tomato;
-  font-weight: bold;
-}
-
-/* profile card layout */
-#gh-profile {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  margin: 16px 0;
-  border: 1px solid gray;
-  padding: 16px;
-  background-color: beige;
-  max-width: 600px;
-}
-
-body.dark-mode #gh-profile {
-  background-color: black;
-  border: 1px solid gray;
-}
-
-#gh-avatar {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  border: 2px solid navy;
-}
-
-#gh-info h3 {
-  margin: 0 0 6px 0;
-  color: navy;
-}
-
-body.dark-mode #gh-info h3 {
-  color: skyblue;
-}
-
-#gh-info p {
-  margin: 4px 0;
-  font-size: 0.9em;
-}
-
-#sort-controls {
-  margin: 14px 0 8px 0;
-  font-size: 0.9em;
-}
-
-#sort-select {
-  margin-left: 6px;
-  padding: 4px;
-  border: 1px solid gray;
-  background-color: white;
-  color: black;
-}
-
-body.dark-mode #sort-select {
-  background-color: black;
-  color: white;
-  border: 1px solid gray;
-}
-
-/* repo list */
-#repo-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  max-width: 600px;
-}
-
-#repo-list li {
-  border: 1px solid lightgray;
-  padding: 10px 14px;
-  margin-bottom: 8px;
-  background-color: white;
-}
-
-body.dark-mode #repo-list li {
-  background-color: black;
-  border: 1px solid gray;
-  color: white;
-}
-
-#repo-list li strong {
-  color: navy;
-}
-
-body.dark-mode #repo-list li strong {
-  color: skyblue;
-}
-
-#repo-list li span {
-  font-size: 0.85em;
-  color: gray;
-  margin-left: 10px;
-}
-
-
-/* =====================================================
-   RESPONSIVE - TABLET (max 768px)
-====================================================== */
-
-@media (max-width: 768px) {
-
-  /* sidebar stacks on top */
-  #page-body {
-    flex-direction: column;
-  }
-
-  #sidebar {
-    width: auto;
-    min-width: unset;
-    border-right: none;
-    border-bottom: 1px solid gray;
-    padding: 10px 15px;
-  }
-
-  #sidebar-nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  #sidebar-nav ul li {
-    margin-bottom: 0;
-  }
-
-  /* 2 columns on tablet */
-  #team-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* tech cards stack on tablet */
-  #tech-grid {
-    grid-template-columns: 1fr;
-  }
-
-  #gh-profile {
-    flex-direction: column;
-  }
-
-}
-
-
-/* =====================================================
-   RESPONSIVE - MOBILE (max 480px)
-====================================================== */
-
-@media (max-width: 480px) {
-
-  .landing-box h1 {
-    font-size: 1.6em;
-  }
-
-  .nav-logo {
-    font-size: 1em;
-  }
-
-  #theme-btn {
-    font-size: 0.75em;
-    padding: 6px 10px;
-  }
-
-  #main-content {
-    padding: 14px;
-  }
-
-  /* 1 column on mobile */
-  #team-grid {
-    grid-template-columns: 1fr;
-  }
-
-  #tech-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* footer links stack vertically on mobile */
-  #footer-links {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  #gh-username {
-    width: 180px;
-  }
-
 }
