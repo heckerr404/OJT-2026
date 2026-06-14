@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Developer Explorer</title>
+  <!-- link to our stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVBAR
+  ====================================================== -->
+  <nav id="navbar">
+    <div class="nav-logo">&#128270; GitHub Explorer</div>
+    <!-- dark/light mode toggle -->
+    <button id="theme-btn" onclick="toggleTheme()">&#127769; Dark Mode</button>
+  </nav>
+
+  <!-- =====================================================
+       MAIN CONTENT
+  ====================================================== -->
+  <div id="main-wrap">
+
+    <h1>GitHub Developer Explorer</h1>
+    <p class="subtitle">
+      Search any GitHub username to see their profile and public repositories.
+    </p>
+
+    <!-- search input + button -->
+    <div id="search-bar">
+      <input type="text" id="gh-username" placeholder="e.g. torvalds, heckerr404" />
+      <button id="gh-search-btn" onclick="searchGitHub()">Search</button>
+    </div>
+
+    <!-- loading message shown while fetch is happening -->
+    <p id="gh-loading" style="display:none;">Loading...</p>
+
+    <!-- error message shown if username not found or network error -->
+    <p id="gh-error" style="display:none;"></p>
+
+    <!-- profile card - filled by JS after fetch -->
+    <div id="gh-profile" style="display:none;">
+      <img id="gh-avatar" src="" alt="GitHub Avatar" />
+      <div id="gh-info">
+        <h2 id="gh-name"></h2>
+        <p id="gh-bio"></p>
+        <div id="gh-stats">
+          <span>&#128101; Followers: <strong id="gh-followers"></strong></span>
+          <span>&#128100; Following: <strong id="gh-following"></strong></span>
+          <span>&#128194; Public Repos: <strong id="gh-repos"></strong></span>
+        </div>
+        <!-- link to open their profile on github.com -->
+        <a id="gh-profile-link" href="#" target="_blank">View on GitHub &#8599;</a>
+      </div>
+    </div>
+
+    <!-- sort controls shown after repos are loaded -->
+    <div id="sort-controls" style="display:none;">
+      <label for="sort-select">Sort repos by:</label>
+      <select id="sort-select" onchange="sortRepos()">
+        <option value="name">Name (A to Z)</option>
+        <option value="stars">Stars (High to Low)</option>
+      </select>
+    </div>
+
+    <!-- repo count label that -->
+    <p id="repo-count" style="display:none;"></p>
+
+    <!-- repo list built dynamically by script.js -->
+    <ul id="repo-list"></ul>
+
+  </div>
+  <!-- end main-wrap -->
+
+  <!-- link script at bottom so HTML loads first -->
+  <script src="script.js"></script>
+
+</body>
+</html>
