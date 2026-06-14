@@ -1,149 +1,78 @@
-/* ---- Base styles (light mode) ---- */
+/* === LIGHT MODE (default) === */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: white;
+  background: white;
   color: black;
 }
 
-/* ---- Dark mode applied to body by JS ---- */
-body.dark-mode {
-  background-color: black;
-  color: white;
-}
+/* === DARK MODE (added by JS) === */
+body.dark-mode { background: #111; color: white; }
 
 
-/* =====================================================
-   NAVBAR
-====================================================== */
-
+/* === NAVBAR === */
 #navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: navy;
+  background: navy;
   color: white;
   padding: 12px 24px;
   position: sticky;
   top: 0;
 }
-
-.nav-logo {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: skyblue;
-}
+.nav-logo { font-size: 1.2em; font-weight: bold; color: skyblue; }
 
 #theme-btn {
   padding: 8px 16px;
-  background-color: skyblue;
+  background: skyblue;
   color: navy;
   border: none;
   cursor: pointer;
-  font-size: 0.9em;
   font-weight: bold;
 }
-
-#theme-btn:hover {
-  background-color: lightblue;
-}
-
-body.dark-mode #navbar {
-  background-color: black;
-  border-bottom: 1px solid gray;
-}
+#theme-btn:hover { background: lightblue; }
+body.dark-mode #navbar { background: #222; border-bottom: 1px solid #444; }
 
 
-/* =====================================================
-   MAIN CONTENT WRAPPER
-====================================================== */
-
-#main-wrap {
-  max-width: 700px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
-
-#main-wrap h1 {
-  color: navy;
-  margin-bottom: 6px;
-}
-
-body.dark-mode #main-wrap h1 {
-  color: skyblue;
-}
-
-.subtitle {
-  color: gray;
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-size: 0.95em;
-}
+/* === MAIN WRAPPER === */
+#main-wrap { max-width: 700px; margin: 30px auto; padding: 0 20px; }
+#main-wrap h1 { color: navy; margin-bottom: 6px; }
+body.dark-mode #main-wrap h1 { color: skyblue; }
+.subtitle { color: gray; margin-top: 0; margin-bottom: 20px; }
 
 
-/* =====================================================
-   SEARCH BAR
-====================================================== */
-
-#search-bar {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
+/* === SEARCH BAR === */
+#search-bar { display: flex; gap: 10px; margin-bottom: 20px; }
 
 #gh-username {
   flex: 1;
   padding: 10px 12px;
   border: 1px solid gray;
   font-size: 1em;
-  font-family: Arial, sans-serif;
-  background-color: white;
+  background: white;
   color: black;
 }
-
-body.dark-mode #gh-username {
-  background-color: darkgray;
-  color: white;
-  border: 1px solid gray;
-}
+body.dark-mode #gh-username { background: #444; color: white; }
 
 #gh-search-btn {
   padding: 10px 22px;
-  background-color: navy;
+  background: navy;
   color: white;
   border: none;
   cursor: pointer;
   font-size: 1em;
   font-weight: bold;
 }
-
-#gh-search-btn:hover {
-  background-color: seagreen;
-}
+#gh-search-btn:hover { background: seagreen; }
 
 
-/* =====================================================
-   LOADING AND ERROR MESSAGES
-====================================================== */
-
-#gh-loading {
-  color: gray;
-  font-style: italic;
-  font-size: 0.95em;
-}
-
-#gh-error {
-  color: tomato;
-  font-weight: bold;
-  font-size: 0.95em;
-}
+/* === MESSAGES === */
+#gh-loading { color: gray; font-style: italic; }
+#gh-error   { color: tomato; font-weight: bold; }
 
 
-/* =====================================================
-   PROFILE CARD
-====================================================== */
-
+/* === PROFILE CARD === */
 #gh-profile {
   display: flex;
   gap: 20px;
@@ -151,161 +80,66 @@ body.dark-mode #gh-username {
   border: 1px solid lightgray;
   padding: 18px;
   margin-bottom: 20px;
-  background-color: beige;
+  background: beige;
 }
-
-body.dark-mode #gh-profile {
-  background-color: darkgray;
-  border: 1px solid gray;
-}
+body.dark-mode #gh-profile { background: #333; border-color: #555; }
 
 #gh-avatar {
   width: 90px;
   height: 90px;
   border-radius: 50%;
   border: 3px solid navy;
-  flex-shrink: 0;
 }
+body.dark-mode #gh-avatar { border-color: skyblue; }
 
-body.dark-mode #gh-avatar {
-  border: 3px solid skyblue;
-}
+#gh-info h2 { margin: 0 0 6px; color: navy; }
+body.dark-mode #gh-info h2 { color: skyblue; }
 
-#gh-info {
-  flex: 1;
-}
+#gh-info p { margin: 4px 0 10px; font-size: 0.9em; color: gray; }
+body.dark-mode #gh-info p { color: lightgray; }
 
-#gh-info h2 {
-  margin: 0 0 6px 0;
-  color: navy;
-  font-size: 1.2em;
-}
-
-body.dark-mode #gh-info h2 {
-  color: skyblue;
-}
-
-#gh-info p {
-  margin: 4px 0 10px 0;
-  font-size: 0.9em;
-  color: gray;
-}
-
-body.dark-mode #gh-info p {
-  color: lightgray;
-}
-
-#gh-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-bottom: 12px;
-  font-size: 0.9em;
-}
-
-#gh-stats span {
-  background-color: lightgray;
-  padding: 4px 10px;
-  color: black;
-}
-
-body.dark-mode #gh-stats span {
-  background-color: gray;
-  color: white;
-}
+#gh-stats { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; font-size: 0.9em; }
+#gh-stats span { background: lightgray; padding: 4px 10px; color: black; }
+body.dark-mode #gh-stats span { background: #555; color: white; }
 
 #gh-profile-link {
   display: inline-block;
   padding: 6px 14px;
-  background-color: navy;
+  background: navy;
   color: white;
   text-decoration: none;
   font-size: 0.85em;
 }
-
-#gh-profile-link:hover {
-  background-color: seagreen;
-}
+#gh-profile-link:hover { background: seagreen; }
 
 
-/* =====================================================
-   SORT CONTROLS
-====================================================== */
-
-#sort-controls {
-  margin-bottom: 10px;
-  font-size: 0.9em;
-}
-
-#sort-select {
-  margin-left: 6px;
-  padding: 5px 8px;
-  border: 1px solid gray;
-  background-color: white;
-  color: black;
-  font-family: Arial, sans-serif;
-}
-
-body.dark-mode #sort-select {
-  background-color: darkgray;
-  color: white;
-}
-
-#repo-count {
-  font-size: 0.85em;
-  color: gray;
-  margin-bottom: 8px;
-}
+/* === SORT CONTROLS === */
+#sort-controls { margin-bottom: 10px; font-size: 0.9em; }
+#sort-select { margin-left: 6px; padding: 5px 8px; border: 1px solid gray; }
+body.dark-mode #sort-select { background: #444; color: white; }
+#repo-count { font-size: 0.85em; color: gray; margin-bottom: 8px; }
 
 
-/* =====================================================
-   REPO LIST
-====================================================== */
-
-#repo-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
+/* === REPO LIST === */
+#repo-list { list-style: none; padding: 0; margin: 0; }
 #repo-list li {
   padding: 12px 16px;
   border: 1px solid lightgray;
   margin-bottom: 8px;
-  background-color: white;
+  background: white;
 }
-
-body.dark-mode #repo-list li {
-  background-color: darkgray;
-  border: 1px solid gray;
-}
+body.dark-mode #repo-list li { background: #333; border-color: #555; }
 
 .repo-name {
   color: navy;
   font-weight: bold;
-  font-size: 1em;
   text-decoration: none;
   display: block;
   margin-bottom: 4px;
 }
+body.dark-mode .repo-name { color: skyblue; }
+.repo-name:hover { text-decoration: underline; }
 
-body.dark-mode .repo-name {
-  color: skyblue;
-}
-/* repo */
-.repo-name:hover {
-  text-decoration: underline;
-}
-
-.repo-meta {
-  font-size: 0.82em;
-  color: gray;
-}
-
-body.dark-mode .repo-meta {
-  color: lightgray;
-}
-
-.repo-meta span {
-  margin-right: 14px;
-}
+.repo-meta { font-size: 0.82em; color: gray; }
+body.dark-mode .repo-meta { color: lightgray; }
+.repo-meta span { margin-right: 14px; }
