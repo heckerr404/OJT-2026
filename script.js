@@ -1,111 +1,51 @@
 // script.js - Team Agency Portfolio
 
+const $ = id => document.getElementById(id);
 
 function enterSite() {
-  var landing = document.getElementById("landing-page");
-  var mainPg  = document.getElementById("main-page");
-
-  landing.style.display = "none";
-  mainPg.style.display  = "block";
+  $("landing-page").style.display = "none";
+  $("main-page").style.display = "block";
 }
-
 
 function showSection(name) {
-  var portfolio = document.getElementById("section-portfolio");
-
-  if (name === "portfolio") {
-    portfolio.style.display = "block";
-  }
+  if (name === "portfolio") $("section-portfolio").style.display = "block";
 }
-
 
 function setActive(linkId) {
-  var allLinks = document.querySelectorAll("#sidebar-nav ul li a");
-
-  for (var i = 0; i < allLinks.length; i++) {
-    allLinks[i].classList.remove("active");
-  }
-
-  var clicked = document.getElementById(linkId);
-  if (clicked) {
-    clicked.classList.add("active");
-  }
+  document.querySelectorAll("#sidebar-nav ul li a").forEach(a => a.classList.remove("active"));
+  $(linkId)?.classList.add("active");
 }
-
 
 function collapseSidebar() {
-  var sidebar = document.getElementById("sidebar");
-
-  if (sidebar.classList.contains("collapsed")) {
-    sidebar.classList.remove("collapsed");
-  } else {
-    sidebar.classList.add("collapsed");
-  }
+  $("sidebar").classList.toggle("collapsed");
 }
-
 
 function toggleTheme() {
-  var body = document.body;
-  var btn  = document.getElementById("theme-btn");
-
-  if (body.classList.contains("dark-mode")) {
-    body.classList.remove("dark-mode");
-    btn.textContent = "\uD83C\uDF19 Dark Mode";
-    localStorage.setItem("theme", "light");
-  } else {
-    body.classList.add("dark-mode");
-    btn.textContent = "\u2600\uFE0F Light Mode";
-    localStorage.setItem("theme", "dark");
-  }
+  const isDark = document.body.classList.toggle("dark-mode");
+  $("theme-btn").textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+  localStorage.setItem("theme", isDark ? "dark" : "light");
 }
-
 
 function loadSavedTheme() {
-  var saved = localStorage.getItem("theme");
-  var btn   = document.getElementById("theme-btn");
-
-  if (saved === "dark") {
+  if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-mode");
-    btn.textContent = "\u2600\uFE0F Light Mode";
+    $("theme-btn").textContent = "☀️ Light Mode";
   }
 }
-
 
 function submitForm(event) {
   event.preventDefault();
+  const [name, email, msg] = ["c-name", "c-email", "c-message"].map($);
+  const msgBox = $("form-msg");
 
-  var name    = document.getElementById("c-name").value;
-  var email   = document.getElementById("c-email").value;
-  var message = document.getElementById("c-message").value;
-  var msgBox  = document.getElementById("form-msg");
+  const errorMsg = !name.value.trim() ? "Please enter your name." :
+                   !email.value.trim() ? "Please enter your email." :
+                   !msg.value.trim() ? "Please write a message." : "";
 
-  if (name.trim() === "") {
-    msgBox.textContent = "Please enter your name.";
-    msgBox.style.color = "tomato";
-    return;
-  }
+  msgBox.textContent = errorMsg || "Thank you! Your message has been received.";
+  msgBox.style.color = errorMsg ? "tomato" : "seagreen";
 
-  if (email.trim() === "") {
-    msgBox.textContent = "Please enter your email.";
-    msgBox.style.color = "tomato";
-    return;
-  }
-
-  if (message.trim() === "") {
-    msgBox.textContent = "Please write a message.";
-    msgBox.style.color = "tomato";
-    return;
-  }
-
-  msgBox.textContent = "Thank you! Your message has been received.";
-  msgBox.style.color = "seagreen";
-
-  document.getElementById("c-name").value    = "";
-  document.getElementById("c-email").value   = "";
-  document.getElementById("c-message").value = "";
+  if (!errorMsg) [name, email, msg].forEach(f => f.value = "");
 }
 
-
-window.onload = function() {
-  loadSavedTheme();
-};
+window.onload = loadSavedTheme;

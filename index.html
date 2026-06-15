@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Team Agency Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
   <div id="landing-page">
@@ -44,25 +46,7 @@
         </div>
       </div>
 
-      <div class="hero-right">
-        <div class="stat-item">
-          <div class="stat-icon">&#128101;</div>
-          <div class="stat-number">6</div>
-          <div class="stat-label">Students</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-icon">&#128193;</div>
-          <div class="stat-number">6</div>
-          <div class="stat-label">Projects</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-icon">&#9733;</div>
-          <div class="stat-number">1</div>
-          <div class="stat-label">Creative Team</div>
-        </div>
-      </div>
+
 
     </div>
 
@@ -82,7 +66,6 @@
 
         <div id="sidebar-header">
           <div id="sidebar-logo">
-            <span id="sidebar-logo-icon">&#127968;</span>
             <span id="sidebar-logo-text">Team Agency</span>
           </div>
           <button id="collapse-btn" onclick="collapseSidebar()" title="Collapse sidebar">&#8249;</button>
@@ -91,33 +74,34 @@
         <nav id="sidebar-nav">
           <ul>
             <li>
-              <a href="#" class="active" id="link-portfolio" onclick="showSection('portfolio'); setActive('link-portfolio'); return false;">
-                <span class="nav-icon">&#127968;</span>
+              <a href="#" class="active" id="link-portfolio"
+                onclick="showSection('portfolio'); setActive('link-portfolio'); return false;">
                 <span class="nav-label">Team Portfolio</span>
               </a>
             </li>
             <li>
               <a href="../quiz-app/index.html">
-                <span class="nav-icon">&#10067;</span>
                 <span class="nav-label">Interactive Quiz App</span>
               </a>
             </li>
             <li>
               <a href="../expense-tracker/index.html">
-                <span class="nav-icon">&#128181;</span>
                 <span class="nav-label">Expense Tracker</span>
               </a>
             </li>
             <li>
               <a href="../news-feed/index.html">
-                <span class="nav-icon">&#128240;</span>
                 <span class="nav-label">Live News Feed</span>
               </a>
             </li>
             <li>
               <a href="../kanban-board/index.html">
-                <span class="nav-icon">&#128203;</span>
                 <span class="nav-label">Kanban Task Board</span>
+              </a>
+            </li>
+            <li>
+              <a href="github-explorer/index.html">
+                <span class="nav-label">GitHub Explorer</span>
               </a>
             </li>
           </ul>
@@ -132,7 +116,7 @@
           <div id="about-section">
             <h2>About This Project</h2>
             <p>
-              This is a school capstone project built by a team of 6 students using pure
+              This is a College capstone project built by a team of 6 students using pure
               HTML, CSS, and JavaScript &mdash; no frameworks or libraries.
               Each member independently built one full project demonstrating key web skills
               like DOM manipulation, state management, Fetch API, and localStorage.
@@ -296,4 +280,5 @@
   <script src="script.js"></script>
 
 </body>
+
 </html>
