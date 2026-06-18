@@ -1,26 +1,31 @@
-// script.js - Team Agency Portfolio
+// script.js — Team Agency Portfolio
+// Uses only topics from college JS syllabus
 
-// Shortcut for document.getElementById()
-function getElement(id) {
-  return document.getElementById(id);
-}
+// ─── Helper ────────────────────────────────────────────────────────────────
 
-// Hide landing page and show the main page
+// Returns an element from the page using its id
+const getElement = (id) => document.getElementById(id);
+
+// ─── Landing Page ───────────────────────────────────────────────────────────
+
+// Hides the landing page and shows the main dashboard
 function enterSite() {
   getElement("landing-page").style.display = "none";
   getElement("main-page").style.display = "block";
 }
 
-// Show a section by name (currently supports "portfolio")
+// ─── Section Navigation ─────────────────────────────────────────────────────
+
+// Shows a specific content section based on the section name passed in
 function showSection(sectionName) {
   if (sectionName === "portfolio") {
     getElement("section-portfolio").style.display = "block";
   }
 }
 
-// Remove "active" from all sidebar links, then highlight the clicked one
+// Removes "active" class from all sidebar links, then adds it to the clicked one
 function setActive(linkId) {
-  document.querySelectorAll("#sidebar-nav ul li a").forEach(function(link) {
+  document.querySelectorAll("#sidebar-nav ul li a").forEach(function (link) {
     link.classList.remove("active");
   });
 
@@ -28,22 +33,25 @@ function setActive(linkId) {
   if (clickedLink) {
     clickedLink.classList.add("active");
   }
-  }
+}
 
-// Toggle sidebar open/closed
+// ─── Sidebar ────────────────────────────────────────────────────────────────
+
+// Toggles the sidebar between open and collapsed states
 function collapseSidebar() {
   getElement("sidebar").classList.toggle("collapsed");
 }
 
-// Switch between dark and light mode, and save the choice
-function toggleTheme() {
-  const isDarkMode = document.body.classList.toggle("dark-mode");
+// ─── Theme Toggle ────────────────────────────────────────────────────────────
 
-  getElement("theme-btn").textContent = isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode";
-  localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+// Switches between dark and light mode, and saves the user's choice to localStorage
+function toggleTheme() {
+  const isDark = document.body.classList.toggle("dark-mode");
+  getElement("theme-btn").textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+  localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 
-// On page load, apply dark mode if the user previously chose it
+// Reads the saved theme from localStorage and applies it when the page loads
 function loadSavedTheme() {
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-mode");
@@ -51,20 +59,22 @@ function loadSavedTheme() {
   }
 }
 
-// Validate form fields and show success or error message
+// ─── Contact Form ────────────────────────────────────────────────────────────
+
+// Validates the contact form fields and shows a success or error message
 function submitForm(event) {
-  event.preventDefault(); // Stop page from refreshing on submit
+  event.preventDefault(); // Stop the page from refreshing on form submit
 
   const nameField    = getElement("c-name");
   const emailField   = getElement("c-email");
   const messageField = getElement("c-message");
   const messageBox   = getElement("form-msg");
 
-  // Check each field and show an error if empty
+  // Check each field — show an error and stop if any field is empty
   if (!nameField.value.trim()) {
     messageBox.textContent = "Please enter your name.";
     messageBox.style.color = "tomato";
-     return;
+    return;
   }
   if (!emailField.value.trim()) {
     messageBox.textContent = "Please enter your email.";
@@ -77,11 +87,15 @@ function submitForm(event) {
     return;
   }
 
-  // All fields valid — show success and clear the form
+  // All fields valid — show success and reset the form
   messageBox.textContent = "Thank you! Your message has been received.";
   messageBox.style.color = "seagreen";
-  nameField.value = emailField.value = messageField.value = "";
+  nameField.value = "";
+  emailField.value = "";
+  messageField.value = "";
 }
 
-// Apply saved theme when the page first loads
-window.onload = loadSavedTheme;
+// ─── Init ────────────────────────────────────────────────────────────────────
+
+// Run loadSavedTheme as soon as the page finishes loading
+window.addEventListener("load", loadSavedTheme);

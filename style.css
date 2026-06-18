@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-/* === GLOBAL / BODY === */
-:root {
-  --accent: #4f6ef7;
-}
+
 
 * {
   box-sizing: border-box;
@@ -59,7 +56,7 @@ body {
 }
 
 .logo-star {
-  color: var(--accent);
+  color: #4f6ef7;
   font-size: 1.3em;
 }
 
@@ -84,7 +81,7 @@ body {
 
 #enter-btn,
 .hero-btn-primary {
-  background-color: var(--accent);
+  background-color: #4f6ef7;
   color: white;
   border-radius: 100px;
   border: none;
@@ -125,7 +122,7 @@ body {
 
 .hero-left::before {
   content: "— OJT CAPSTONE PROJECT 2026";
-  color: var(--accent);
+  color: #4f6ef7;
   font-size: 0.78rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -134,31 +131,12 @@ body {
   font-weight: 600;
 }
 
-.hero-title {
-  font-size: 7rem;
-  font-weight: 900;
-  line-height: 0.9;
-  text-transform: uppercase;
-  background: linear-gradient(to right, white 36%, var(--accent) 36%);
-
-  -webkit-text-fill-color: transparent;
-  margin: 0;
-  letter-spacing: -0.02em;
-}
 
 .hero-title-accent {
-  -webkit-text-fill-color: var(--accent);
-  color: var(--accent);
+  -webkit-text-fill-color: #4f6ef7;
+  color: #4f6ef7;
 }
 
-.hero-title-blue {
-  display: block;
-  background-color: #0d0d0d;
-
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px white;
-  color: transparent;
-}
 
 .hero-tagline {
   color: #888;
@@ -237,7 +215,7 @@ body {
 }
 
 #theme-btn:hover {
-  border-color: var(--accent);
+  border-color: #4f6ef7;
   color: white;
 }
 
@@ -319,7 +297,7 @@ body {
 }
 
 #sidebar-nav ul li a.active {
-  color: var(--accent);
+  color: #4f6ef7;
   background-color: #111827;
   font-weight: 600;
   padding-left: 20px;
@@ -344,7 +322,7 @@ body {
 #main-content h2::before {
   display: block;
   font-size: 0.7rem;
-  color: var(--accent);
+  color: #4f6ef7;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -421,12 +399,12 @@ body {
 }
 
 .student-card:hover {
-  border-color: var(--accent);
+  border-color: #4f6ef7;
   transform: translateY(-4px);
 }
 
 .card-header {
-  background-color: var(--accent);
+  background-color: #4f6ef7;
   color: white;
   width: 48px;
   height: 48px;
@@ -478,7 +456,7 @@ body {
 .gh-link {
   display: inline-block;
   margin-top: 14px;
-  color: var(--accent);
+  color: #4f6ef7;
   font-size: 0.82rem;
   text-decoration: none;
 }
@@ -517,7 +495,7 @@ body {
 }
 
 .tech-card:hover {
-  border-color: var(--accent);
+  border-color: #4f6ef7;
 }
 
 .tech-name {
@@ -562,7 +540,7 @@ body {
   content: "";
   width: 10px;
   height: 10px;
-  background-color: var(--accent);
+  background-color: #4f6ef7;
   border-radius: 50%;
   position: absolute;
   left: -6px;
@@ -638,12 +616,12 @@ body {
 #contact-form input:focus,
 #contact-form textarea:focus {
   outline: none;
-  border-color: var(--accent);
+  border-color: #4f6ef7;
 }
 
 #contact-form button {
   padding: 12px 28px;
-  background-color: var(--accent);
+  background-color: #4f6ef7;
   color: white;
   border: none;
   border-radius: 8px;
@@ -692,7 +670,7 @@ body {
 }
 
 #footer-links a:hover {
-  color: var(--accent);
+  color: #4f6ef7;
 }
 
 /* === GITHUB EXPLORER === */
@@ -709,12 +687,12 @@ body {
 
 #gh-username:focus {
   outline: none;
-  border-color: var(--accent);
+  border-color: #4f6ef7;
 }
 
 #gh-search-btn {
   padding: 12px 28px;
-  background-color: var(--accent);
+  background-color: #4f6ef7;
   color: white;
   border: none;
   border-radius: 8px;
@@ -755,7 +733,7 @@ body {
 }
 
 #gh-profile-link {
-  background-color: var(--accent);
+  background-color: #4f6ef7;
   color: white;
   border-radius: 8px;
 }
@@ -795,7 +773,7 @@ body:not(.dark-mode) .landing-nav-links a:hover {
 }
 
 body:not(.dark-mode) .hero-title {
-  background: linear-gradient(to right, #111 36%, var(--accent) 36%);
+  background: linear-gradient(to right, #111 36%, #4f6ef7 36%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -834,7 +812,7 @@ body:not(.dark-mode) #theme-btn {
 }
 
 body:not(.dark-mode) #theme-btn:hover {
-  border-color: var(--accent);
+  border-color: #4f6ef7;
   color: #111;
 }
 
@@ -862,7 +840,7 @@ body:not(.dark-mode) #sidebar-nav ul li a:hover {
 
 body:not(.dark-mode) #sidebar-nav ul li a.active {
   background-color: #eef2ff;
-  color: var(--accent);
+  color: #4f6ef7;
   padding-left: 20px;
 }
 
@@ -937,7 +915,7 @@ body:not(.dark-mode) #contact-form textarea {
 
 body:not(.dark-mode) #contact-form input:focus,
 body:not(.dark-mode) #contact-form textarea:focus {
-  border-color: var(--accent);
+  border-color: #4f6ef7;
 }
 
 body:not(.dark-mode) #site-footer {
@@ -951,7 +929,7 @@ body:not(.dark-mode) #footer-links a {
 }
 
 body:not(.dark-mode) #footer-links a:hover {
-  color: var(--accent);
+  color: #4f6ef7;
 }
 
 body:not(.dark-mode) #gh-username {
@@ -961,7 +939,7 @@ body:not(.dark-mode) #gh-username {
 }
 
 body:not(.dark-mode) #gh-username:focus {
-  border-color: var(--accent);
+  border-color: #4f6ef7;
 }
 
 body:not(.dark-mode) #gh-profile,
@@ -995,3 +973,5 @@ body:not(.dark-mode) .repo-name {
 body:not(.dark-mode) .repo-meta {
   color: #888;
 }
+
+/* end */
