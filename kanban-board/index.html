@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanban Task Board</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../topbar.css" />
+</head>
+<body>
+
+  <!-- TOP BAR: Back + Theme Toggle -->
+  <div id="top-bar">
+    <a href="../index.html" id="back-btn">&#8592; Back</a>
+    <div>
+      <h1>Kanban Task Board</h1>
+      <p>Sumeet's Project</p>
+    </div>
+    <button id="theme-btn" onclick="toggleTheme()">&#9790; Dark</button>
+  </div>
+
+  <div id="form">
+    <input type="text" id="task-input" placeholder="Enter a task..." />
+    <select id="col-select">
+      <option value="todo">To Do</option>
+      <option value="inprogress">In Progress</option>
+      <option value="done">Done</option>
+    </select>
+    <button onclick="addCard()">+ Add</button>
+  </div>
+
+  <div id="board">
+
+    <div class="col" ondragover="allowDrop(event)" ondrop="drop(event, 'todo')">
+      <h3>To Do <span id="count-todo">0</span></h3>
+      <div id="cards-todo"></div>
+    </div>
+
+    <div class="col" ondragover="allowDrop(event)" ondrop="drop(event, 'inprogress')">
+      <h3>In Progress <span id="count-inprogress">0</span></h3>
+      <div id="cards-inprogress"></div>
+    </div>
+
+    <div class="col" ondragover="allowDrop(event)" ondrop="drop(event, 'done')">
+      <h3>Done <span id="count-done">0</span></h3>
+      <div id="cards-done"></div>
+    </div>
+
+  </div>
+
+  <script src="../theme.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
