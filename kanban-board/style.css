@@ -1,0 +1,53 @@
+/* === BASE === */
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #eee;
+  padding: 30px;
+  transition: background 0.2s, color 0.2s;
+}
+
+
+#form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+#task-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background: #1e1e1e;
+  color: white;
+  font-size: 0.9rem;
+}
+
+#task-input:focus {
+  outline: none;
+  border-color: #4f6ef7;
+}
+
+#col-select {
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background: #1e1e1e;
+  color: #aaa;
+}
+
+#form button {
+  padding: 10px 20px;
+  background: #4f6ef7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#form button:hover {
+  background: #3a55d4;
+}
