@@ -4,19 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Quiz App</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="Quiz.css">
 </head>
 <body>
-    <button id="themeToggle" class="theme-toggle" type="button" title="Toggle theme">
-        <i id="themeIcon" class="bi bi-moon"></i>
-    </button>
+    <header class="topbar">
+        <h1 class="brand">TEAM AGENCY</h1>
+        <button id="themeToggle" class="theme-toggle" type="button">🌙 Dark Mode</button>
+    </header>
 
-    <main class="app">
-        <section class="quiz-box">
+    <div class="layout">
+        <aside class="sidebar">
+            <p class="side-title">TEAM AGENCY</p>
+            <a href="#">Team Portfolio</a>
+            <a class="active" href="#">Interactive Quiz App</a>
+            <a href="#">Expense Tracker</a>
+            <a href="#">Live News Feed</a>
+            <a href="#">Kanban Task Board</a>
+            <a href="#">GitHub Explorer</a>
+        </aside>
+
+        <main class="content">
+            <p class="section-label">— QUIZ PROJECT</p>
             <div class="top-row">
                 <div>
-                    <h1>Interactive Quiz App</h1>
+                    <h2>Interactive Quiz App</h2>
                     <p id="selectedTopicText" class="topic-name hidden"></p>
                 </div>
                 <div id="scoreBox" class="score-box hidden">Score: <span id="scoreText">0</span></div>
@@ -62,8 +73,8 @@
                 <button id="restartButton" class="primary" type="button">Restart Quiz</button>
                 <button id="topicButton" class="secondary" type="button">Choose Another Topic</button>
             </div>
-        </section>
-    </main>
+        </main>
+    </div>
 
     <script src="QuestionBank.js"></script>
     <script src="Quiz.js"></script>
