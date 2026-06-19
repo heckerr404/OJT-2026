@@ -1,0 +1,289 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef7f5;
+    color: #1d2b2a;
+}
+
+.dark-theme {
+    background: #101918;
+    color: #ecf6f3;
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.quiz-box {
+    width: 100%;
+    max-width: 760px;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #cfe5df;
+    border-radius: 8px;
+    box-shadow: 0 16px 40px rgba(25, 75, 68, 0.12);
+}
+
+.dark-theme .quiz-box,
+.dark-theme .topic-button,
+.dark-theme .option-button,
+.dark-theme .feedback,
+.dark-theme .review-card {
+    background: #20322f;
+    border-color: #42675f;
+    color: #ecf6f3;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #b9d8d3;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #00796b;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.dark-theme .theme-toggle {
+    background: #223632;
+    border-color: #487169;
+    color: #ffffff;
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    border-bottom: 1px solid #dcecea;
+    padding-bottom: 18px;
+    margin-bottom: 22px;
+}
+
+.label,
+.topic-name,
+.final-score {
+    color: #00796b;
+    font-weight: bold;
+}
+
+.dark-theme .label,
+.dark-theme .topic-name,
+.dark-theme .final-score {
+    color: #7be0d1;
+}
+
+h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+h2 {
+    margin: 18px 0;
+    font-size: 24px;
+    line-height: 1.35;
+}
+
+p,
+h1,
+h2,
+h3 {
+    overflow-wrap: anywhere;
+}
+
+.score-box {
+    min-width: 105px;
+    text-align: center;
+    background: #e3f6f1;
+    color: #00695c;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.intro-text,
+#questionCount,
+.topic-button small {
+    color: #546866;
+}
+
+.dark-theme .intro-text,
+.dark-theme #questionCount,
+.dark-theme .topic-button small {
+    color: #b7d6d0;
+}
+
+.topic-button,
+.option-button {
+    width: 100%;
+    border: 1px solid #b9d8d3;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #213331;
+    cursor: pointer;
+    text-align: left;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.topic-button {
+    font-weight: bold;
+}
+
+.topic-button small {
+    display: block;
+    margin-top: 4px;
+    font-weight: normal;
+}
+
+.topic-button:hover,
+.option-button:hover,
+.secondary:hover {
+    background: #f0fbf8;
+    border-color: #009688;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #d9ebe7;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+#progressFill {
+    height: 100%;
+    width: 0;
+    background: #009688;
+}
+
+.correct {
+    background: #e7f8ec;
+    border-color: #28a745;
+    color: #145c2a;
+}
+
+.wrong {
+    background: #fdecec;
+    border-color: #dc3545;
+    color: #7b1f28;
+}
+
+.feedback,
+.review-card {
+    margin-top: 14px;
+    padding: 14px;
+    border: 1px solid #c9dfda;
+    border-radius: 6px;
+    background: #f7fcfb;
+}
+
+.review-card {
+    border-left: 5px solid #009688;
+}
+
+.review-wrong {
+    border-left-color: #dc3545;
+}
+
+.review-skipped {
+    border-left-color: #f0ad4e;
+}
+
+.primary,
+.secondary {
+    min-height: 44px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 11px 16px;
+    margin-top: 16px;
+}
+
+.primary {
+    border: none;
+    background: #00796b;
+    color: #ffffff;
+}
+
+.secondary {
+    border: 1px solid #00796b;
+    background: #ffffff;
+    color: #00796b;
+    margin-left: 8px;
+}
+
+.secondary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.dark-theme .secondary {
+    background: #172522;
+    border-color: #7be0d1;
+    color: #7be0d1;
+}
+
+.hidden {
+    display: none;
+}
+
+.final-score {
+    font-size: 28px;
+}
+
+.result-summary {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 18px 0;
+}
+
+.summary-item {
+    padding: 10px 14px;
+    border-radius: 6px;
+    background: #e3f6f1;
+    font-weight: bold;
+}
+
+.dark-theme .summary-item {
+    background: #172522;
+}
+
+@media (max-width: 620px) {
+    .app {
+        align-items: flex-start;
+        padding: 14px;
+    }
+
+    .quiz-box {
+        padding: 20px;
+    }
+
+    .top-row {
+        display: block;
+    }
+
+    .score-box {
+        display: inline-block;
+        margin-top: 12px;
+    }
+
+    .primary,
+    .secondary {
+        width: 100%;
+        margin-left: 0;
+    }
+}
