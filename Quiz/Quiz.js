@@ -220,10 +220,10 @@ function showEntry() {
 function toggleTheme() {
     if (document.body.className === "dark-theme") {
         document.body.className = "";
-        get("themeIcon").className = "bi bi-moon";
+        get("themeToggle").textContent = "🌙 Dark Mode";
     } else {
         document.body.className = "dark-theme";
-        get("themeIcon").className = "bi bi-moon-fill";
+        get("themeToggle").textContent = "☀️ Light Mode";
     }
 }
 
