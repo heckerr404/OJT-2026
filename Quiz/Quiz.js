@@ -82,14 +82,15 @@ function showAnswer() {
     if (chosen === q.answer) {
         get("feedbackTitle").textContent = "Correct!";
         get("feedbackText").textContent = "Your answer: " + q.options[chosen];
+        get("feedbackBox").className = "feedback feedback-correct";
     } else {
         buttons[chosen].className = "option-button wrong";
         get("feedbackTitle").textContent = "Wrong answer";
         get("feedbackText").textContent = "Your answer: " + q.options[chosen] + ". Correct answer: " + q.options[q.answer];
+        get("feedbackBox").className = "feedback feedback-wrong";
     }
 
     get("explanationText").textContent = "Explanation: " + q.explanation;
-    get("feedbackBox").className = "feedback";
 }
 
 function nextQuestion() {
@@ -143,15 +144,15 @@ function showResult() {
     get("finalScore").textContent = correct + " / " + questions.length + " (" + percent + "%)";
     get("finalMessage").textContent = "Correct, wrong, and skipped questions are shown below.";
     get("resultSummary").innerHTML = "";
-    addSummary("Correct: " + correct);
-    addSummary("Wrong: " + wrong);
-    addSummary("Skipped: " + skipped);
+    addSummary("Correct: " + correct, "summary-correct");
+    addSummary("Wrong: " + wrong, "summary-wrong");
+    addSummary("Skipped: " + skipped, "summary-skipped");
     showReview();
 }
 
-function addSummary(text) {
+function addSummary(text, className) {
     var item = document.createElement("div");
-    item.className = "summary-item";
+    item.className = "summary-item " + className;
     item.textContent = text;
     get("resultSummary").appendChild(item);
 }
