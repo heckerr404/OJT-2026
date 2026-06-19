@@ -197,10 +197,44 @@ h3 {
     color: #8a2020;
 }
 
+.dark-theme .option-button.correct {
+    background: #0f3b28;
+    border-color: #2fc986;
+    color: #7af0b8;
+}
+
+.dark-theme .option-button.wrong {
+    background: #421818;
+    border-color: #e75b5b;
+    color: #ff9d9d;
+}
+
 .feedback,
 .review-card {
     padding: 18px;
     margin-top: 16px;
+}
+
+.feedback-correct {
+    border-color: #2fc986;
+    background: #e6faef;
+}
+
+.feedback-wrong {
+    border-color: #e75b5b;
+    background: #fff0f0;
+}
+
+.dark-theme .feedback-correct {
+    background: #0f3b28;
+    border-color: #2fc986;
+    color: #dfffee;
+}
+
+.dark-theme .feedback-wrong {
+    background: #421818;
+    border-color: #e75b5b;
+    color: #ffe5e5;
 }
 
 .review-card {
@@ -213,6 +247,34 @@ h3 {
 
 .review-skipped {
     border-left-color: #f2b84b;
+}
+
+.review-card p:first-child {
+    color: #2fc986;
+}
+
+.review-wrong p:first-child {
+    color: #e75b5b;
+}
+
+.review-skipped p:first-child {
+    color: #f2b84b;
+}
+
+.dark-theme .review-card {
+    background: #12261d;
+    border-color: #2fc986;
+    color: #ffffff;
+}
+
+.dark-theme .review-wrong {
+    background: #281616;
+    border-color: #e75b5b;
+}
+
+.dark-theme .review-skipped {
+    background: #2b2312;
+    border-color: #f2b84b;
 }
 
 .primary,
@@ -262,6 +324,36 @@ h3 {
     gap: 10px;
     flex-wrap: wrap;
     margin: 18px 0;
+}
+
+.summary-correct {
+    background: #e6faef;
+    color: #12613d;
+}
+
+.summary-wrong {
+    background: #fff0f0;
+    color: #8a2020;
+}
+
+.summary-skipped {
+    background: #fff7df;
+    color: #805500;
+}
+
+.dark-theme .summary-correct {
+    background: #0f3b28;
+    color: #7af0b8;
+}
+
+.dark-theme .summary-wrong {
+    background: #421818;
+    color: #ff9d9d;
+}
+
+.dark-theme .summary-skipped {
+    background: #3f3010;
+    color: #ffd36a;
 }
 
 @media (max-width: 760px) {
