@@ -974,4 +974,26 @@ body:not(.dark-mode) .repo-meta {
   color: #888;
 }
 
+/* === HERO LOGO TOGGLE === */
+.hero-logo-img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Light mode (default) */
+.light-logo {
+  display: block;
+}
+.dark-logo {
+  display: none;
+}
+
+/* Dark mode override */
+body.dark-mode .light-logo {
+  display: none;
+}
+body.dark-mode .dark-logo {
+  display: block;
+}
+
 /* end */
