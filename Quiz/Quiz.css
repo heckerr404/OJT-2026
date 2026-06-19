@@ -1,0 +1,390 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f5;
+    color: #111111;
+}
+
+.dark-theme {
+    background: #101010;
+    color: #ffffff;
+}
+
+.topbar {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    border-bottom: 1px solid #dddddd;
+    background: #ffffff;
+}
+
+.dark-theme .topbar {
+    background: #101010;
+    border-color: #242424;
+}
+
+.brand {
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: 4px;
+}
+
+.theme-toggle {
+    border: 1px solid #dddddd;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #555555;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 22px;
+}
+
+.dark-theme .theme-toggle {
+    background: #101010;
+    border-color: #333333;
+    color: #cccccc;
+}
+
+.page {
+    min-height: calc(100vh - 72px);
+    padding: 64px 28px;
+}
+
+.section-label {
+    color: #5576ff;
+    letter-spacing: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.content {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+h2 {
+    margin: 0 0 18px;
+    font-size: 38px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+p,
+h2,
+h3 {
+    overflow-wrap: anywhere;
+}
+
+.topic-name,
+.final-score {
+    color: #2fc986;
+    font-weight: bold;
+}
+
+.intro-text,
+#questionCount,
+.topic-button small,
+#finalMessage {
+    color: #5e5e5e;
+}
+
+.dark-theme .intro-text,
+.dark-theme #questionCount,
+.dark-theme .topic-button small,
+.dark-theme #finalMessage {
+    color: #a8a8a8;
+}
+
+.score-box,
+.summary-item {
+    background: #eef2ff;
+    color: #5576ff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.dark-theme .score-box,
+.dark-theme .summary-item {
+    background: #111b31;
+}
+
+.topic-button,
+.option-button,
+.feedback,
+.review-card {
+    width: 100%;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #111111;
+}
+
+.dark-theme .topic-button,
+.dark-theme .option-button,
+.dark-theme .feedback,
+.dark-theme .review-card {
+    background: #161616;
+    border-color: #2a2a2a;
+    color: #ffffff;
+}
+
+.topic-button,
+.option-button {
+    cursor: pointer;
+    text-align: left;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.topic-button small {
+    display: block;
+    margin-top: 5px;
+    font-weight: normal;
+}
+
+.topic-button:hover,
+.option-button:hover {
+    border-color: #5576ff;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #e5e5e5;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 28px;
+}
+
+.dark-theme .progress-bar {
+    background: #252525;
+}
+
+#progressFill {
+    height: 100%;
+    width: 0;
+    background: #5576ff;
+}
+
+.correct {
+    background: #e6faef;
+    border-color: #2fc986;
+    color: #12613d;
+}
+
+.wrong {
+    background: #fff0f0;
+    border-color: #e75b5b;
+    color: #8a2020;
+}
+
+.dark-theme .option-button.correct {
+    background: #0f3b28;
+    border-color: #2fc986;
+    color: #7af0b8;
+}
+
+.dark-theme .option-button.wrong {
+    background: #421818;
+    border-color: #e75b5b;
+    color: #ff9d9d;
+}
+
+.feedback,
+.review-card {
+    padding: 18px;
+    margin-top: 16px;
+}
+
+.feedback-correct {
+    border-color: #2fc986;
+    background: #e6faef;
+}
+
+.feedback-wrong {
+    border-color: #e75b5b;
+    background: #fff0f0;
+}
+
+.dark-theme .feedback-correct {
+    background: #0f3b28;
+    border-color: #2fc986;
+    color: #dfffee;
+}
+
+.dark-theme .feedback-wrong {
+    background: #421818;
+    border-color: #e75b5b;
+    color: #ffe5e5;
+}
+
+.review-card {
+    border-left: 5px solid #2fc986;
+}
+
+.review-wrong {
+    border-left-color: #e75b5b;
+}
+
+.review-skipped {
+    border-left-color: #f2b84b;
+}
+
+.review-card p:first-child {
+    color: #2fc986;
+}
+
+.review-wrong p:first-child {
+    color: #e75b5b;
+}
+
+.review-skipped p:first-child {
+    color: #f2b84b;
+}
+
+.dark-theme .review-card {
+    background: #12261d;
+    border-color: #2fc986;
+    color: #ffffff;
+}
+
+.dark-theme .review-wrong {
+    background: #281616;
+    border-color: #e75b5b;
+}
+
+.dark-theme .review-skipped {
+    background: #2b2312;
+    border-color: #f2b84b;
+}
+
+.primary,
+.secondary {
+    min-height: 44px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 11px 18px;
+    margin-top: 18px;
+}
+
+.primary {
+    border: none;
+    background: #5576ff;
+    color: #ffffff;
+}
+
+.secondary {
+    border: 1px solid #dddddd;
+    background: #ffffff;
+    color: #555555;
+    margin-left: 8px;
+}
+
+.dark-theme .secondary {
+    background: #101010;
+    border-color: #333333;
+    color: #cccccc;
+}
+
+.secondary:disabled {
+    opacity: 0.5;
+}
+
+.hidden {
+    display: none;
+}
+
+.final-score {
+    font-size: 34px;
+}
+
+.result-summary {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 18px 0;
+}
+
+.summary-correct {
+    background: #e6faef;
+    color: #12613d;
+}
+
+.summary-wrong {
+    background: #fff0f0;
+    color: #8a2020;
+}
+
+.summary-skipped {
+    background: #fff7df;
+    color: #805500;
+}
+
+.dark-theme .summary-correct {
+    background: #0f3b28;
+    color: #7af0b8;
+}
+
+.dark-theme .summary-wrong {
+    background: #421818;
+    color: #ff9d9d;
+}
+
+.dark-theme .summary-skipped {
+    background: #3f3010;
+    color: #ffd36a;
+}
+
+@media (max-width: 760px) {
+    .topbar {
+        padding: 0 16px;
+    }
+
+    .brand {
+        font-size: 16px;
+        letter-spacing: 3px;
+    }
+
+    .theme-toggle {
+        padding: 9px 14px;
+    }
+
+    .page {
+        padding: 28px 16px;
+    }
+
+    .top-row {
+        display: block;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    .primary,
+    .secondary {
+        width: 100%;
+        margin-left: 0;
+    }
+}

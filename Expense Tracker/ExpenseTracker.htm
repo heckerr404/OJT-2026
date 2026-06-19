@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Use a strong geometric sans similar to the reference image -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" href="expenseCss.css">
+</head>
+<body class="bg-light">
+<div class="container-fluid p-4">
+    <div class="text-center mb-5">
+        <h1 class="fw-bold display-4">
+            <i class="fa-solid fa-wallet"></i>
+            Expense Tracker
+        </h1>
+        <p class="text-secondary fs-4">
+            Track your income and expenses
+        </p>
+    </div>
+    <!-- Summary Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="card summary-card income-card">
+                <div class="card-body d-flex align-items-center">
+                   <div class="icon-circle bg-success">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+                    <div class="ms-4">
+                        <h5>Total Income</h5>
+                        <h2 class="text-success fw-bold" id="income">
+                            ₹0
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card summary-card expense-card">
+                <div class="card-body d-flex align-items-center">
+                    <div class="icon-circle bg-danger">
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </div>
+                    <div class="ms-4">
+                        <h5>Total Expense</h5>
+                        <h2 class="text-danger fw-bold" id="expense">
+                            ₹0
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card summary-card balance-card">
+
+                <div class="card-body d-flex align-items-center">
+
+                    <div class="icon-circle bg-primary">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+
+                    <div class="ms-4">
+                        <h5>Balance</h5>
+                        <h2 class="text-primary fw-bold" id="balance">
+                            ₹0
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content -->
+
+    <div class="row g-4">
+
+        <!-- Add Transaction -->
+        <div class="col-lg-4">
+            <div class="card custom-card h-100">
+                <div class="card-body p-4">
+                    <h2 class="mb-4">
+                        <i class="fa-solid fa-plus text-primary"></i>
+                        Add Transaction
+                    </h2>
+                    <div class="mb-3">
+                        <label>Description</label>
+                        <input type="text"
+                            class="form-control form-control-lg" id="description">
+                    </div>
+                    <div class="mb-3">
+                        <label>Amount</label>
+                        <input type="number"
+                               class="form-control form-control-lg" id="amount">
+                    </div>
+                    <div class="mb-4">
+                        <label>Type</label>
+                        <select class="form-select form-select-lg" id="TransactionType">
+                            <option>Income</option>
+                            <option>Expense</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-success btn-lg w-100 add-btn" id="btnn">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Transaction
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Transaction Table -->
+        <div class="col-lg-8">
+            <div class="card custom-card">
+                <div class="card-body p-4">
+                    <div class="tran">
+                        <h2 class="mb-4">
+                            <i class="fa-solid fa-list text-primary"></i>
+                            Transactions
+                        </h2>
+                         <input
+                        type="text"
+                        class="form-control mb-3"
+                        placeholder="Search Transactions..."
+                        id="searchBox">
+                        <h6 id="transactionCount" style="
+                                width:50%;
+                                height:60px;
+                                border-radius:18px;
+                                padding-left:20px;
+                            ">
+                            Total Transactions: 0
+                        </h6>
+                    </div>
+                    <table class="table align-middle">
+                        <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Actions</th>
+                            <th>Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <span class="badge bg-success">
+                                  
+                                </span>
+                            </td>
+                            <td class="text-success fw-bold">
+                                
+                            </td>
+                            <td>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+                                <button class="btn btn-danger btn-sm">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="expenseTracker.js"></script>
+</html>

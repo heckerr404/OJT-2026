@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz App</title>
+    <link rel="stylesheet" href="Quiz.css">
+</head>
+<body>
+    <header class="topbar">
+        <h1 class="brand">TEAM AGENCY</h1>
+        <button id="themeToggle" class="theme-toggle" type="button">🌙 Dark Mode</button>
+    </header>
+
+    <main class="page">
+        <section class="content">
+            <p class="section-label">— QUIZ PROJECT</p>
+            <div class="top-row">
+                <div>
+                    <h2>Interactive Quiz App</h2>
+                    <p id="selectedTopicText" class="topic-name hidden"></p>
+                </div>
+                <div id="scoreBox" class="score-box hidden">Score: <span id="scoreText">0</span></div>
+            </div>
+
+            <div id="entryScreen">
+                <h2>Select Quiz Topic</h2>
+                <p class="intro-text">Choose one topic to start the quiz.</p>
+                <div class="topic-list">
+                    <button class="topic-button" data-topic="html">HTML <small>Tags and page structure</small></button>
+                    <button class="topic-button" data-topic="css">CSS <small>Colors, spacing, and selectors</small></button>
+                    <button class="topic-button" data-topic="javascript">JavaScript <small>DOM, events, and logic</small></button>
+                    <button class="topic-button" data-topic="general">General Questions <small>Machine basics and code flow</small></button>
+                </div>
+            </div>
+
+            <div id="quizScreen" class="hidden">
+                <p id="questionCount"></p>
+                <div class="progress-bar"><div id="progressFill"></div></div>
+                <h2 id="questionText"></h2>
+                <div id="optionsBox"></div>
+
+                <div id="feedbackBox" class="feedback hidden">
+                    <h3 id="feedbackTitle"></h3>
+                    <p id="feedbackText"></p>
+                    <p id="explanationText"></p>
+                </div>
+
+                <div class="nav-row">
+                    <button id="prevButton" class="secondary" type="button">Previous</button>
+                    <button id="nextButton" class="primary" type="button">Next</button>
+                    <button id="backButton" class="secondary" type="button">Back to Topics</button>
+                </div>
+            </div>
+
+            <div id="resultScreen" class="hidden">
+                <h2>Quiz Complete</h2>
+                <p id="finalScore" class="final-score"></p>
+                <p id="finalMessage"></p>
+                <div id="resultSummary" class="result-summary"></div>
+                <h3 class="review-title">Question Review</h3>
+                <div id="reviewBox"></div>
+                <button id="restartButton" class="primary" type="button">Restart Quiz</button>
+                <button id="topicButton" class="secondary" type="button">Choose Another Topic</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="QuestionBank.js"></script>
+    <script src="Quiz.js"></script>
+</body>
+</html>
