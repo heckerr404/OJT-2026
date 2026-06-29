@@ -10,14 +10,15 @@
 <body>
   <h1>Live News Feed</h1>
   <div id="categories">
-    <button class="cat-btn active">Technology</button>
-    <button class="cat-btn">General</button>
-    <button class="cat-btn">Sports</button>
-    <button class="cat-btn">Business</button>
-    <button class="cat-btn">Entertainment</button>
+    <button class="cat-btn active" onclick="loadCategory('technology', this)">Technology</button>
+    <button class="cat-btn" onclick="loadCategory('general', this)">General</button>
+    <button class="cat-btn" onclick="loadCategory('sports', this)">Sports</button>
+    <button class="cat-btn" onclick="loadCategory('business', this)">Business</button>
+    <button class="cat-btn" onclick="loadCategory('entertainment', this)">Entertainment</button>
   </div>
   <div id="spinner"></div>
   <p id="error-msg"></p>
   <div id="news-grid"></div>
+  <script src="script.js"></script>
 </body>
 </html>
