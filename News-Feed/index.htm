@@ -4,10 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Live News Feed</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
   <h1>Live News Feed</h1>
-  <div id="categories"></div>
+  <div id="categories">
+    <button class="cat-btn active">Technology</button>
+    <button class="cat-btn">General</button>
+    <button class="cat-btn">Sports</button>
+    <button class="cat-btn">Business</button>
+    <button class="cat-btn">Entertainment</button>
+  </div>
+  <div id="spinner"></div>
+  <p id="error-msg"></p>
   <div id="news-grid"></div>
 </body>
 </html>
