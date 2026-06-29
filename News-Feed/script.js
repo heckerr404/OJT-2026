@@ -27,10 +27,9 @@ function formatDate(dateStr) {
   return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 }
 
+// Simple HTML stripping using regex
 function stripHtml(html) {
-  const tmp = document.createElement("div");
-  tmp.innerHTML = html;
-  return tmp.textContent || tmp.innerText || "";
+  return html.replace(/<[^>]*>/g, "");
 }
 
 function createCard(item) {
@@ -75,9 +74,11 @@ async function fetchNews(category) {
       return;
     }
 
-    data.items.slice(0, 9).forEach(function (item) {
-      grid.appendChild(createCard(item));
-    });
+    // Render first 9 items using standard loop
+    const items = data.items.slice(0, 9);
+    for (let i = 0; i < items.length; i++) {
+      grid.appendChild(createCard(items[i]));
+    }
 
   } catch (err) {
     hideLoading();
@@ -90,7 +91,9 @@ function loadCategory(category, btn) {
     b.classList.remove("active");
   });
   btn.classList.add("active");
+  document.getElementById("search-input").value = "";
   fetchNews(category);
 }
 
+applyTheme();
 fetchNews("technology");

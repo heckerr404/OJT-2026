@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Live News Feed</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../topbar.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <div id="top-bar">
+    <a href="../index.html" id="back-btn">&#8592; Back</a>
+    <button id="theme-btn" onclick="toggleTheme()">&#9790; Dark</button>
+  </div>
   <h1>Live News Feed</h1>
   <div id="categories">
     <button class="cat-btn active" onclick="loadCategory('technology', this)">Technology</button>
@@ -19,6 +24,7 @@
   <div id="spinner"></div>
   <p id="error-msg"></p>
   <div id="news-grid"></div>
+  <script src="../theme.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
