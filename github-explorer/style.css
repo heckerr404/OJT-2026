@@ -10,7 +10,7 @@ body.dark-mode {
   color: white;
 }
 
-/* === NAVBAR === */
+/* NAVBAR  */
 #navbar {
   display: flex;
   justify-content: space-between;
@@ -50,7 +50,7 @@ body.dark-mode #theme-btn {
   border: 1px solid darkgray;
 }
 
-/* === MAIN WRAPPER === */
+/* MAIN WRAPPER */
 #main-wrap {
   max-width: 700px;
   margin: 30px auto;
@@ -71,7 +71,7 @@ body.dark-mode #main-wrap h1 {
   color: white;
 }
 
-/* === SEARCH BAR === */
+/*SEARCH BAR */
 #search-bar {
   display: flex;
   gap: 10px;
@@ -119,7 +119,7 @@ body.dark-mode #gh-search-btn:hover {
   background-color: lightgray;
 }
 
-/* === MESSAGES === */
+/*MESSAGES*/
 #gh-loading {
   color: gray;
   font-style: italic;
@@ -129,7 +129,7 @@ body.dark-mode #gh-search-btn:hover {
   font-weight: bold;
 }
 
-/* === PROFILE CARD === */
+/*PROFILE CARD */
 #gh-profile {
   display: flex;
   gap: 20px;
@@ -206,7 +206,7 @@ body.dark-mode #gh-profile-link:hover {
   background-color: lightgray;
 }
 
-/* === SORT CONTROLS === */
+/* SORT CONTROLS */
 #sort-controls {
   margin-bottom: 10px;
   font-size: 0.9em;
@@ -230,7 +230,7 @@ body.dark-mode #sort-select {
   border-color: gray;
 }
 
-/* === REPO LIST === */
+/* REPO LIST */
 #repo-list {
   list-style: none;
   padding: 0;

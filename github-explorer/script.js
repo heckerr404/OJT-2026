@@ -72,7 +72,7 @@ function renderRepos(repos) {
 
 function sortRepos() {
   const sortBy = $("sort-select").value;
-  const sorted = [...allRepos].sort((a, b) => 
+  const sorted = [...allRepos].sort((a, b) =>
     sortBy === "name" ? a.name.localeCompare(b.name) : b.stargazers_count - a.stargazers_count
   );
   renderRepos(sorted);

@@ -1,7 +1,4 @@
-// script.js - Kanban Task Board
-// Uses only college syllabus topics: localStorage, JSON.parse/stringify,
-// filter, find, forEach, createElement, appendChild, addEventListener,
-// getElementById, classList
+
 
 // Load saved cards from localStorage, or start with an empty array
 let cards = JSON.parse(localStorage.getItem("kanbanCards")) || [];

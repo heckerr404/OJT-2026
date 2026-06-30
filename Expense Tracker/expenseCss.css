@@ -92,8 +92,8 @@ body{
 
 .btn-sm{ width:40px; height:36px; border-radius:8px; margin:0 6px; display:inline-flex; align-items:center; justify-content:center; }
 
-.btn-primary{ background:#5865f2; border:none; color:#fff; }
-.btn-danger{ background:#ef4444; border:none; color:#fff; }
+.btn-primary{ background:#5865f2; border:none; color:white; }
+.btn-danger{ background:#ef4444; border:none; color:white; }
 
 .btn-primary:hover{
     transform:scale(1.05);

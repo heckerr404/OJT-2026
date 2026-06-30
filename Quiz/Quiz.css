@@ -11,7 +11,7 @@ body {
 
 .dark-theme {
     background: #101010;
-    color: #ffffff;
+    color: white;
 }
 
 .topbar {
@@ -21,7 +21,7 @@ body {
     justify-content: space-between;
     padding: 0 28px;
     border-bottom: 1px solid #dddddd;
-    background: #ffffff;
+    background: white;
 }
 
 .dark-theme .topbar {
@@ -38,7 +38,7 @@ body {
 .theme-toggle {
     border: 1px solid #dddddd;
     border-radius: 999px;
-    background: #ffffff;
+    background: white;
     color: #555555;
     cursor: pointer;
     font-size: 15px;
@@ -133,7 +133,7 @@ h3 {
     width: 100%;
     border: 1px solid #dddddd;
     border-radius: 8px;
-    background: #ffffff;
+    background: white;
     color: #111111;
 }
 
@@ -143,7 +143,7 @@ h3 {
 .dark-theme .review-card {
     background: #161616;
     border-color: #2a2a2a;
-    color: #ffffff;
+    color: white;
 }
 
 .topic-button,
@@ -264,7 +264,7 @@ h3 {
 .dark-theme .review-card {
     background: #12261d;
     border-color: #2fc986;
-    color: #ffffff;
+    color: white;
 }
 
 .dark-theme .review-wrong {
@@ -291,12 +291,12 @@ h3 {
 .primary {
     border: none;
     background: #5576ff;
-    color: #ffffff;
+    color: white;
 }
 
 .secondary {
     border: 1px solid #dddddd;
-    background: #ffffff;
+    background: white;
     color: #555555;
     margin-left: 8px;
 }

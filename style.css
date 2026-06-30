@@ -774,12 +774,12 @@ body {
 
 /* === LIGHT MODE OVERRIDES === */
 body:not(.dark-mode) {
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
   color: #111;
 }
 
 body:not(.dark-mode) #landing-page {
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
 }
 
 body:not(.dark-mode) .landing-nav-logo {
@@ -801,7 +801,7 @@ body:not(.dark-mode) .hero-title {
 }
 
 body:not(.dark-mode) .hero-title-blue {
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
   -webkit-text-stroke: 2px #111;
 }
 
@@ -856,7 +856,7 @@ body:not(.dark-mode) #sidebar-nav ul li a {
 }
 
 body:not(.dark-mode) #sidebar-nav ul li a:hover {
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
   color: #111;
 }
 
@@ -867,7 +867,7 @@ body:not(.dark-mode) #sidebar-nav ul li a.active {
 }
 
 body:not(.dark-mode) #main-content {
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
 }
 
 body:not(.dark-mode) #main-content h2 {
@@ -941,7 +941,7 @@ body:not(.dark-mode) #contact-form textarea:focus {
 }
 
 body:not(.dark-mode) #site-footer {
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
   border-top-color: #e5e5e5;
   color: #888;
 }
@@ -983,7 +983,7 @@ body:not(.dark-mode) #gh-info p {
 }
 
 body:not(.dark-mode) #gh-stats span {
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
   color: #111;
   border-color: #ddd;
 }
