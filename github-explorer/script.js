@@ -3,7 +3,7 @@ let allRepos = [];
 
 function toggleTheme() {
   const isDark = document.body.classList.toggle("dark-mode");
-  $("theme-btn").textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+  $("theme-btn").textContent = isDark ? "Light Mode" : " Dark Mode";
   localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 
