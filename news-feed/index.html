@@ -27,6 +27,13 @@
     <button class="cat-btn" onclick="loadCategory('entertainment', this)">Entertainment</button>
   </div>
 
+  <!-- SEARCH BAR -->
+  <div id="search-container">
+    <span id="search-icon">&#128269;</span>
+    <input type="text" id="search-input" placeholder="Search articles by title or keywords..." oninput="filterNews()" />
+    <button id="clear-search" onclick="clearSearch()">&times;</button>
+  </div>
+
   <!-- ERROR MESSAGE -->
   <p id="error-msg"></p>
 

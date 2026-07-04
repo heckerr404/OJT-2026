@@ -17,6 +17,9 @@ const FEEDS = {
 // Current active category
 let currentCategory = "technology";
 
+// In-memory cache of current category's articles for filtering
+let fetchedArticles = [];
+
 // Grab the elements we will update frequently
 const grid    = document.getElementById("news-grid");
 const errorEl = document.getElementById("error-msg");
@@ -135,6 +138,47 @@ function createCard(item, category) {
   return card;
 }
 
+// Filter news based on search input
+function filterNews() {
+  const searchInput = document.getElementById("search-input");
+  const clearBtn = document.getElementById("clear-search");
+  if (!searchInput) return;
+
+  const query = searchInput.value.toLowerCase().trim();
+  
+  if (clearBtn) {
+    clearBtn.style.display = query ? "block" : "none";
+  }
+
+  // Filter articles
+  const filtered = fetchedArticles.filter(function (item) {
+    const title = (item.title || "").toLowerCase();
+    const desc = stripHtml(item.description || "").toLowerCase();
+    return title.includes(query) || desc.includes(query);
+  });
+
+  grid.innerHTML = "";
+
+  if (filtered.length === 0) {
+    errorEl.textContent = "No articles match your search.";
+    return;
+  }
+
+  errorEl.textContent = "";
+  filtered.forEach(function (item) {
+    grid.appendChild(createCard(item, currentCategory));
+  });
+}
+
+// Clear search input and restore full list
+function clearSearch() {
+  const searchInput = document.getElementById("search-input");
+  if (searchInput) {
+    searchInput.value = "";
+    filterNews();
+  }
+}
+
 // Fetches and displays news articles for the given category
 async function fetchNews(category) {
   showLoading();
@@ -148,13 +192,16 @@ async function fetchNews(category) {
     const data = await res.json();
     grid.innerHTML = ""; // Clear skeletons
 
-    if (!data.items || data.items.length === 0) {
+    fetchedArticles = data.items || [];
+    currentCategory = category;
+
+    if (fetchedArticles.length === 0) {
       errorEl.textContent = "No articles found. Try another category.";
       return;
     }
 
-    // Show up to 9 articles
-    data.items.slice(0, 9).forEach(function (item) {
+    // Show up to 12 articles
+    fetchedArticles.slice(0, 12).forEach(function (item) {
       grid.appendChild(createCard(item, category));
     });
 
@@ -170,10 +217,16 @@ function loadCategory(category, btn) {
     b.classList.remove("active");
   });
   btn.classList.add("active");
+  
   const searchInput = document.getElementById("search-input");
+  const clearBtn = document.getElementById("clear-search");
   if (searchInput) {
     searchInput.value = "";
   }
+  if (clearBtn) {
+    clearBtn.style.display = "none";
+  }
+  
   fetchNews(category);
 }
 
