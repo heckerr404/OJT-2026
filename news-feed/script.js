@@ -14,6 +14,9 @@ const FEEDS = {
   entertainment: "https://www.hindustantimes.com/feeds/rss/entertainment/rssfeed.xml"
 };
 
+// Current active category
+let currentCategory = "technology";
+
 // Grab the elements we will update frequently
 const grid    = document.getElementById("news-grid");
 const spinner = document.getElementById("spinner");
@@ -44,17 +47,68 @@ function stripHtml(html) {
   return tmp.textContent || tmp.innerText || "";
 }
 
+// Extract image from thumbnail, enclosure, or HTML content
+function extractImage(item) {
+  if (item.thumbnail) return item.thumbnail;
+  if (item.enclosure && item.enclosure.link) return item.enclosure.link;
+  
+  // Extract first image from description/content HTML
+  const htmlString = (item.description || "") + (item.content || "");
+  const match = htmlString.match(/<img[^>]+src=["']([^"']+)["']/i);
+  if (match && match[1]) {
+    return match[1];
+  }
+  return "";
+}
+
+// Get modern category gradient
+function getCategoryGradient(category) {
+  const gradients = {
+    technology: "linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)",
+    general: "linear-gradient(135deg, #3a7bd5 0%, #3a6073 100%)",
+    sports: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
+    business: "linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%)",
+    entertainment: "linear-gradient(135deg, #f857a6 0%, #ff5858 100%)"
+  };
+  return gradients[category] || gradients.general;
+}
+
+// Get category icon
+function getCategoryIcon(category) {
+  const icons = {
+    technology: "💻",
+    general: "📰",
+    sports: "⚽",
+    business: "📈",
+    entertainment: "🎬"
+  };
+  return icons[category] || "📰";
+}
+
+// Replace failed image with themed placeholder
+function handleImgError(img, category) {
+  const container = img.parentNode;
+  if (!container) return;
+  const placeholder = document.createElement("div");
+  placeholder.className = "card-img placeholder";
+  placeholder.style.background = getCategoryGradient(category);
+  placeholder.innerHTML = `<span class="placeholder-icon">${getCategoryIcon(category)}</span>`;
+  container.replaceChild(placeholder, img);
+}
+
 // Builds and returns a single news card DOM element
-function createCard(item) {
+function createCard(item, category) {
   const card = document.createElement("div");
   card.className = "news-card";
 
   const desc   = stripHtml(item.description || "").substring(0, 120) + "...";
-  const imgSrc = item.thumbnail || "";
+  const imgSrc = extractImage(item);
 
   const imgHTML = imgSrc
-    ? `<img class="card-img" src="${imgSrc}" alt="" onerror="this.style.display='none'" />`
-    : `<div class="card-img"></div>`;
+    ? `<img class="card-img" src="${imgSrc}" alt="" onerror="handleImgError(this, '${category}')" loading="lazy" />`
+    : `<div class="card-img placeholder" style="background: ${getCategoryGradient(category)}">
+         <span class="placeholder-icon">${getCategoryIcon(category)}</span>
+       </div>`;
 
   card.innerHTML = `
     ${imgHTML}
@@ -90,7 +144,7 @@ async function fetchNews(category) {
 
     // Show up to 9 articles
     data.items.slice(0, 9).forEach(function (item) {
-      grid.appendChild(createCard(item));
+      grid.appendChild(createCard(item, category));
     });
 
   } catch (err) {
