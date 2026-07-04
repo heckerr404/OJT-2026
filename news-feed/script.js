@@ -14,6 +14,40 @@ const FEEDS = {
   entertainment: "https://www.hindustantimes.com/feeds/rss/entertainment/rssfeed.xml"
 };
 
+// Caching configuration
+const CACHE_KEY_PREFIX = "news_feed_";
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
+// Read cached feed items
+function getCachedData(category) {
+  try {
+    const cached = localStorage.getItem(CACHE_KEY_PREFIX + category);
+    if (!cached) return null;
+    const parsed = JSON.parse(cached);
+    const age = Date.now() - parsed.timestamp;
+    if (age < CACHE_TTL) {
+      return parsed.data;
+    }
+    localStorage.removeItem(CACHE_KEY_PREFIX + category);
+  } catch (e) {
+    console.error("Cache read error", e);
+  }
+  return null;
+}
+
+// Write feed items to local storage cache
+function setCachedData(category, data) {
+  try {
+    const cacheObj = {
+      timestamp: Date.now(),
+      data: data
+    };
+    localStorage.setItem(CACHE_KEY_PREFIX + category, JSON.stringify(cacheObj));
+  } catch (e) {
+    console.error("Cache write error", e);
+  }
+}
+
 // Current active category
 let currentCategory = "technology";
 
@@ -110,13 +144,59 @@ function handleImgError(img, category) {
   container.replaceChild(placeholder, img);
 }
 
+// Calculate estimated reading time in minutes
+function getReadingTime(title, description) {
+  const text = (title || "") + " " + (description || "");
+  const words = text.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
+
+// Copy article link to clipboard and show toast
+function shareArticle(event, link) {
+  event.preventDefault();
+  event.stopPropagation();
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(link).then(function() {
+      showToast("Link copied to clipboard!");
+    }).catch(function() {
+      showToast("Failed to copy link.");
+    });
+  } else {
+    const textarea = document.createElement("textarea");
+    textarea.value = link;
+    textarea.style.position = "fixed";
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand("copy");
+      showToast("Link copied to clipboard!");
+    } catch (err) {
+      showToast("Failed to copy link.");
+    }
+    document.body.removeChild(textarea);
+  }
+}
+
+// Display temporary popup toast notification
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  if (!toast) return;
+  toast.textContent = message;
+  toast.className = "show";
+  setTimeout(function () {
+    toast.className = "";
+  }, 2500);
+}
+
 // Builds and returns a single news card DOM element
 function createCard(item, category) {
   const card = document.createElement("div");
   card.className = "news-card";
 
-  const desc   = stripHtml(item.description || "").substring(0, 120) + "...";
+  const cleanDesc = stripHtml(item.description || "");
+  const desc   = cleanDesc.substring(0, 120) + "...";
   const imgSrc = extractImage(item);
+  const readingTime = getReadingTime(item.title, cleanDesc);
 
   const imgHTML = imgSrc
     ? `<img class="card-img" src="${imgSrc}" alt="" onerror="handleImgError(this, '${category}')" loading="lazy" />`
@@ -127,11 +207,21 @@ function createCard(item, category) {
   card.innerHTML = `
     ${imgHTML}
     <div class="card-body">
-      <p class="card-source">Hindustan Times</p>
+      <div class="card-meta">
+        <span class="card-source">Hindustan Times</span>
+        <span class="card-reading-time">⏱️ ${readingTime} min read</span>
+      </div>
       <p class="card-title">${item.title}</p>
       <p class="card-desc">${desc}</p>
-      <p class="card-date">${formatDate(item.pubDate)}</p>
-      <a class="card-link" href="${item.link}" target="_blank" rel="noopener">Read More \u2192</a>
+      <div class="card-footer">
+        <p class="card-date">${formatDate(item.pubDate)}</p>
+        <div class="card-actions">
+          <button class="card-share-btn" onclick="shareArticle(event, '${item.link}')" title="Copy article link">
+            &#128203; Share
+          </button>
+          <a class="card-link" href="${item.link}" target="_blank" rel="noopener">Read More &rarr;</a>
+        </div>
+      </div>
     </div>
   `;
 
@@ -179,9 +269,26 @@ function clearSearch() {
   }
 }
 
-// Fetches and displays news articles for the given category
+// Fetches and displays news articles for the given category (with localStorage cache check)
 async function fetchNews(category) {
   showLoading();
+  currentCategory = category;
+
+  // Check cache first
+  const cachedData = getCachedData(category);
+  if (cachedData) {
+    grid.innerHTML = ""; // Clear skeletons
+    fetchedArticles = cachedData;
+    if (fetchedArticles.length === 0) {
+      errorEl.textContent = "No articles found. Try another category.";
+      return;
+    }
+    fetchedArticles.slice(0, 12).forEach(function (item) {
+      grid.appendChild(createCard(item, category));
+    });
+    return;
+  }
+
   try {
     const rssUrl = FEEDS[category] || FEEDS.general;
     const url    = RSS2JSON + encodeURIComponent(rssUrl);
@@ -193,7 +300,7 @@ async function fetchNews(category) {
     grid.innerHTML = ""; // Clear skeletons
 
     fetchedArticles = data.items || [];
-    currentCategory = category;
+    setCachedData(category, fetchedArticles);
 
     if (fetchedArticles.length === 0) {
       errorEl.textContent = "No articles found. Try another category.";
