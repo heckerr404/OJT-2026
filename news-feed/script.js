@@ -19,19 +19,30 @@ let currentCategory = "technology";
 
 // Grab the elements we will update frequently
 const grid    = document.getElementById("news-grid");
-const spinner = document.getElementById("spinner");
 const errorEl = document.getElementById("error-msg");
 
-// Shows the loading spinner and clears old content
+// Shows the skeleton loading shimmer cards and clears old content
 function showLoading() {
-  spinner.style.display = "block";
-  grid.innerHTML        = "";
-  errorEl.textContent   = "";
-}
-
-// Hides the loading spinner
-function hideLoading() {
-  spinner.style.display = "none";
+  grid.innerHTML = "";
+  for (let i = 0; i < 6; i++) {
+    const skeleton = document.createElement("div");
+    skeleton.className = "skeleton-card";
+    skeleton.innerHTML = `
+      <div class="skeleton-img shimmer"></div>
+      <div class="skeleton-body">
+        <div class="skeleton-source shimmer"></div>
+        <div class="skeleton-title shimmer"></div>
+        <div class="skeleton-desc shimmer"></div>
+        <div class="skeleton-desc shimmer" style="width: 80%;"></div>
+        <div class="skeleton-footer">
+          <div class="skeleton-date shimmer"></div>
+          <div class="skeleton-link shimmer"></div>
+        </div>
+      </div>
+    `;
+    grid.appendChild(skeleton);
+  }
+  errorEl.textContent = "";
 }
 
 // Returns a nicely formatted date string like "16 Jun 2026"
@@ -135,7 +146,7 @@ async function fetchNews(category) {
     if (!res.ok) throw new Error("Fetch failed");
 
     const data = await res.json();
-    hideLoading();
+    grid.innerHTML = ""; // Clear skeletons
 
     if (!data.items || data.items.length === 0) {
       errorEl.textContent = "No articles found. Try another category.";
@@ -148,7 +159,7 @@ async function fetchNews(category) {
     });
 
   } catch (err) {
-    hideLoading();
+    grid.innerHTML = ""; // Clear skeletons
     errorEl.textContent = "Could not load news. Please try again.";
   }
 }
