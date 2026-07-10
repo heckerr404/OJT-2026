@@ -1,19 +1,6 @@
 const $ = id => document.getElementById(id);
 let allRepos = [];
 
-function toggleTheme() {
-  const isDark = document.body.classList.toggle("dark-mode");
-  $("theme-btn").textContent = isDark ? "Light Mode" : " Dark Mode";
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-}
-
-function loadSavedTheme() {
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-    $("theme-btn").textContent = "☀️ Light Mode";
-  }
-}
-
 async function searchGitHub() {
   const username = $("gh-username").value.trim();
   if (!username) return alert("Please enter a GitHub username.");
@@ -31,6 +18,9 @@ async function searchGitHub() {
     if (userRes.status === 404) {
       throw new Error(`User "${username}" not found. Check the spelling.`);
     }
+    if (!userRes.ok) {
+      throw new Error(`Failed to fetch user profile (Status: ${userRes.status}).`);
+    }
 
     const user = await userRes.json();
     $("gh-avatar").src = user.avatar_url;
@@ -43,7 +33,13 @@ async function searchGitHub() {
     profileBox.style.display = "flex";
 
     const repoRes = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`);
+    if (!repoRes.ok) {
+      throw new Error(`Failed to fetch repositories (Status: ${repoRes.status}).`);
+    }
     allRepos = await repoRes.json();
+    if (!Array.isArray(allRepos)) {
+      throw new Error("Repository data is invalid.");
+    }
 
     loading.style.display = "none";
     repoCount.textContent = `Showing ${allRepos.length} public repositories`;
@@ -51,7 +47,7 @@ async function searchGitHub() {
     renderRepos(allRepos);
   } catch (err) {
     loading.style.display = "none";
-    errBox.textContent = err.message.includes("not found") ? err.message : "Something went wrong. Check your internet connection.";
+    errBox.textContent = err.message.includes("Failed to fetch") ? "Network error. Check your internet connection." : err.message;
     errBox.style.display = "block";
   }
 }
