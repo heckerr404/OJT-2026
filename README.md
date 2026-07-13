@@ -16,7 +16,7 @@ Each project in this portfolio demonstrates key frontend engineering skills, inc
    - A real-time news reading client utilizing asynchronous REST API consumption, caching (5-minute TTL), search, and article sharing.
 5. **Kanban Task Board** (Built by *Sumeet* | Branch: `main-sumeet`)
    - A drag-and-drop productivity manager showing advanced visual workflows and task state management.
-6. **GitHub Explorer**
+6. **GitHub Explorer** (Built by *Ritesh Yadav* | Branch: `main`)
    - A tool for searching and inspecting GitHub repositories and developer profiles.
 
 ## 🛠️ Technology Stack
